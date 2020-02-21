@@ -1,0 +1,71 @@
+<div id="register_bg">
+
+
+    <nav id="menu" class="fake_menu"></nav>
+
+    <div id="mm-0" class="mm-page mm-slideout">
+        <div id="preloader" style="display: none;">
+            <div data-loader="circle-side" style="display: none;"></div>
+        </div>
+        <div id="login">
+            <aside>
+                <form ngNativeValidate [formGroup]="forma" (ngSubmit)="registrarUsuario()">
+                    <br><br>
+                    <div class="form-group">
+                        <label> {{ 'login.YourName' | translate }}</label>
+                        <input formControlName="name" name="name" class="form-control" type="text" required placeholder="{{ 'login.Name' | translate }}">
+                        <i class="ti-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ 'login.YourEmail' | translate }}</label>
+                        <input formControlName="email" name="email" class="form-control" type="text" required placeholder="{{ 'login.Email' | translate }}">
+                        <i class="icon_mail_alt"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ 'login.Yourpassword' | translate }}</label>
+                        <input formControlName="password" name="password" class="form-control" type="password" required placeholder="{{ 'login.Password' | translate }}">
+                        <i class="icon_lock_alt"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label>{{ 'login.Confirmpassword' | translate }}</label>
+                        <input formControlName="password2" name="password2" class="form-control" type="password" required placeholder="{{ 'login.Password' | translate }}">
+                        <i class="icon_lock_alt"></i>
+                    </div>
+                    <div class="form-group" *ngIf="forma.errors?.sonIguales && !forma.pristine">
+                        <div class="text-danger">
+                            <p>
+                                <b>Passwords do not match.</b>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clearfix add_bottom_30">
+                        <re-captcha formControlName="recaptchaReactive" required siteKey="6LecqbAUAAAAAM2xLqakCAY0tavkeoDIGHPDuQtH">
+                        </re-captcha>
+                    </div>
+
+                    <div class="clearfix add_bottom_30">
+                        <div class="checkboxes float-left">
+                            <label class="container_check">
+                                {{ 'login.Iagreewiththe' | translate }}
+                                    <a routerLink="/support/termsAndConditions" style=" color: #0056b3;">{{ 'login.termsandpolicies' | translate }}</a>
+                              <input  formControlName="condiciones" name="condiciones"  type="checkbox" required>
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button [disabled]="forma.invalid" class="btn_1 rounded full-width add_top_30">{{ 'login.RegisterNow!' | translate }}</button>
+                    <div class="text-center add_top_20">{{ 'login.Alreadyhaveanacccount?' | translate }}
+                        <strong><a routerLink="/login">{{ 'header.Signup' | translate }}</a></strong>
+                    </div>
+                </form>
+            </aside>
+        </div>
+    </div>
+    <!-- End Preload -->
+
+    <!-- /login -->
+
+
+</div>
