@@ -3,11 +3,11 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
-/*
+
 import { HeaderComponent } from './header/header.component';
 import { SpineerComponent } from './spineer/spineer.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-*/
+
 
 import { FooterComponent } from './footer/footer.component';
 
@@ -44,17 +44,16 @@ export function provideConfig() {
         BrowserAnimationsModule
     ],
     declarations: [
-        /*NopagefoundComponent,
+        NopagefoundComponent,
         HeaderComponent,
-        SpineerComponent
-        */
+        SpineerComponent,
         FooterComponent,
 
     ],
     exports: [
-        /*NopagefoundComponent,
+        NopagefoundComponent,
         HeaderComponent,
-        //  SpineerComponent*/
+        SpineerComponent,
         FooterComponent,
 
     ],

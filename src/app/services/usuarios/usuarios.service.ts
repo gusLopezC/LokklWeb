@@ -1,3 +1,6 @@
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+
 import { Injectable } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { Password } from 'src/app/models/password.model';
@@ -11,6 +14,7 @@ import { AuthService } from 'angularx-social-login';
 // import 'rxjs/add/operator/catch';
 import swal from 'sweetalert2';
 import { DatosPersonales } from '../../models/datosPersonales.model';
+import { Observable } from 'rxjs';
 
 
 
@@ -26,7 +30,11 @@ export class UsuarioService {
     user: Usuario;
     public usserLogged: Usuario;
 
-    constructor(public http: HttpClient, public router: Router, private authService: AuthService) {
+    constructor(
+        @Inject(PLATFORM_ID) private platformId: Object,
+        public http: HttpClient,
+        public router: Router,
+        private authService: AuthService) {
         this.cargarStorage();
     }
 
@@ -41,13 +49,18 @@ export class UsuarioService {
 
     cargarStorage() {
 
-        if (localStorage.getItem('token')) {
-            this.token = localStorage.getItem('token');
-            this.user = JSON.parse(localStorage.getItem('user'));
+        if (isPlatformBrowser(this.platformId)) {
 
-        } else {
-            this.token = '';
-            this.user = null;
+
+            if (localStorage.getItem('token')) {
+                this.token = localStorage.getItem('token');
+                this.user = JSON.parse(localStorage.getItem('user'));
+
+            } else {
+                this.token = '';
+                this.user = null;
+            }
+
         }
     }
 
@@ -275,7 +288,7 @@ export class UsuarioService {
             }));
     }
 
-    obtenerPerfilPublico(id: string) {
+    obtenerPerfilPublico(id: string): Observable<any> {
         const url = URL_SERVICIOS + '/api/users/perfil/perfilpublico/' + id;
 
         let headers = new HttpHeaders();

@@ -1,0 +1,82 @@
+<main>
+    <div class="foundcontact">
+        <div class="background-azul">
+            <div class="container-fluid">
+                <div class="row foundcontactrow no-gutters">
+                    <div class="col-sm-5 topcarta wow zoomIn">
+                        <img src="assets/img/contact/carta.png" alt="" class="carta">
+                    </div>
+                    <div class="col-sm-7 paddingformulario wow slideInRight">
+                        <div class="formulariocontacto">
+                            <h3 style="text-align: center"><b>{{ 'contact.TituloContacto' | translate }}</b></h3>
+                            <form ngNativeValidate (ngSubmit)="enviarMensaje()">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>{{ 'contact.Name' | translate }}</label>
+                                            <input class="form-control" type="text" id="name" required name="name" [(ngModel)]="name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /row -->
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group">
+                                            <label>{{ 'contact.Email' | translate }}</label>
+                                            <input class="form-control" type="email" id="email" required name="email" [(ngModel)]="email">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /row -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>{{ 'contact.Message' | translate }}</label>
+                                            <textarea class="form-control" id="textomensaje" required name="textomensaje" style="height:150px;" [(ngModel)]="textomensaje"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="clearfix add_bottom_30">
+                                    <re-captcha required siteKey="6LecqbAUAAAAAM2xLqakCAY0tavkeoDIGHPDuQtH">
+                                    </re-captcha>
+                                </div>-->
+
+                                <button type="submit" class="btn btn-primary btn-block add_top_30">{{ 'contact.Send' | translate }}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /bg_color_1 -->
+    <div class="contact_info">
+        <div class="container">
+            <ul class="clearfix">
+                <li>
+                    <i class="pe-7s-map-marker"></i>
+                    <h4>{{ 'contact.Address' | translate }}</h4>
+                    <span>7001 Suite 814, Torre 2, Centro Sur,<br> 76090 Santiago de Querétaro, Qro.</span>
+                </li>
+                <li>
+                    <i class="pe-7s-mail-open-file"></i>
+                    <h4>{{ 'contact.DireccionEmail' | translate }}</h4>
+                    <span> iam@lokkl.com <br><small>Monday to Friday 9am - 6pm</small></span>
+
+                </li>
+                <li>
+                    <i class="pe-7s-phone"></i>
+                    <h4>{{ 'contact.ContactsInfo' | translate }}</h4>
+                    <span>
+                            <a href="https://api.whatsapp.com/send?phone=52425944974" target="_blank">
+                                + 52 442 594 4974 </a>
+                                <br><small>Monday to Friday 9am - 6pm</small></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--/contact_info-->
+</main>
+<!--/main-->

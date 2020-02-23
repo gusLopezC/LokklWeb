@@ -1,3 +1,6 @@
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
@@ -20,8 +23,10 @@ export class ToursCiudadService {
   token: string;
   usuario: Usuario;
 
-  constructor(public http: HttpClient, public router: Router, ) {
-    this.token = localStorage.getItem('token');
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, public http: HttpClient, public router: Router, ) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.token = localStorage.getItem('token');
+    }
   }
 
   obtenerTourScrollInfinite(numeropagina: number) {

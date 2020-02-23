@@ -1,0 +1,39 @@
+.imagenperfil {
+    text-align: center
+}
+
+.imagenperfil img {
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+}
+
+hr {
+    background-color: #fff;
+    border-top: 3px solid #dce0e0;
+    color: #484848;
+}
+
+.contenedor {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.texto-encima {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.centrado {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centrado b {
+    color: #fff;
+}

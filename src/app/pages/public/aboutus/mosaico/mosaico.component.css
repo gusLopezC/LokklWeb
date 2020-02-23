@@ -1,0 +1,26 @@
+.fondomosaico {
+    width: 100%;
+    background: url(src/assets/img/aboutus/mosaico/Friends.jpg);
+    background-size: cover;
+    background-position: 0px 0px, 50% 50%;
+    background-repeat: repeat, no-repeat;
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    -webkit-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+}
+
+.content-item {
+    width: 25%;
+}
+
+.content-item .pic img {
+    transition: 8000ms;
+    width: 100%;
+}
+
+.content-item:hover .pic img {
+    transition: 0ms;
+    opacity: 0;
+}

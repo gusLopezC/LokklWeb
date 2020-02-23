@@ -1,0 +1,64 @@
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.compraweb {
+    display: none;
+}
+
+@media (max-width: 575px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .compraweb {
+        display: block;
+    }
+    .compramobile {
+        display: none;
+    }
+}
+
+.centrado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centrado h1 {
+    color: #fff;
+    font-size: 3.625rem;
+    text-transform: uppercase;
+    font-family: Exo, sans-serif;
+}
+
+agm-map {
+    height: 300px;
+}
+
+.space-top-4 {
+    margin-top: 24px;
+}
+
+.palomita {
+    margin-right: 1rem!important;
+    height: 20px;
+    width: 20px;
+    position: relative;
+}
+
+ngx-gallery-preview-top {
+    margin-top: 45px !important;
+    position: absolute !important;
+    width: 100% !important;
+    user-select: none !important;
+}
+
+.ngx-gallery-preview-top {
+    margin-top: 45px !important;
+    position: absolute !important;
+    width: 100% !important;
+    user-select: none !important;
+}

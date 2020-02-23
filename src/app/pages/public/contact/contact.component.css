@@ -1,0 +1,69 @@
+.foundcontact {
+    margin-top: 6%;
+    height: 800px;
+    width: 100%;
+    background: url(src/assets/img/fondos_secciones/hero_in_bg_2.jpg) center center no-repeat;
+}
+
+.background-azul {
+    width: 100%;
+    min-height: 800px;
+    background-color: rgba(9, 106, 208, 0.65);
+    background-size: cover;
+}
+
+@media (max-width: 575px) {
+    .foundcontact {
+        height: 1000px;
+    }
+    .background-azul {
+        height: 1000px;
+    }
+}
+
+@media (min-width: 575px) {
+    .topcarta {
+        top: 25%
+    }
+    .paddingformulario {
+        padding: 7%
+    }
+}
+
+@media (max-width: 575px) {
+    .topcarta {
+        top: 5%
+    }
+    .paddingformulario {
+        top: 7%
+    }
+}
+
+.foundcontactrow {
+    margin-top: 6%;
+    height: 800px;
+    width: 100%;
+}
+
+.carta {
+    width: 100%;
+    margin: auto;
+}
+
+.formulariocontacto {
+    width: 100%;
+    /* height: 545px; */
+    margin-bottom: 0px;
+    padding: 23px 45px;
+    float: left;
+    border-radius: 19px;
+    background-color: #fff;
+    color: #000;
+    text-align: left;
+}
+
+@media (max-width: 575px) {
+    .formulariocontacto {
+        padding: 5px 5px;
+    }
+}

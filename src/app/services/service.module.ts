@@ -5,19 +5,20 @@ import {
   UsuarioService,
   RecoveryPasswordService,
   ToursCiudadService,
-
-/*
-  SettingService,
-  ProspectosService,
-  CarouselModule,
   EmailService,
-  GuiaService,
+  CarouselModule,
   ToursService,
   ComentariosService,
+  RegisterVisitService,
   PaymentService,
-  ReservasService,
-  ChatService,
-  RegisterVisitService*/
+
+  /*
+    SettingService,
+    ProspectosService,
+    GuiaService,
+    ReservasService,
+    ChatService,
+    */
 } from './service.index';
 
 @NgModule({
@@ -29,18 +30,20 @@ import {
     UsuarioService,
     RecoveryPasswordService,
     ToursCiudadService,
-   /*
-    SettingService,
-    ProspectosService,
-    CarouselModule,
     EmailService,
-    GuiaService,
+    CarouselModule,
     ToursService,
     ComentariosService,
+    RegisterVisitService,
     PaymentService,
-    ReservasService,
-    ChatService,
-    RegisterVisitService*/
+
+    /*
+     SettingService,
+     ProspectosService,
+     GuiaService,
+     ReservasService,
+     ChatService,
+     */
   ],
   declarations: []
 })

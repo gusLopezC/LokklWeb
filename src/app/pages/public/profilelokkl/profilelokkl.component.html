@@ -1,0 +1,49 @@
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="cargando"></div>
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <br>
+                <h1>Acerca de: {{usuario?.name}}</h1>
+                <br>
+                <p>{{usuario?.infopersonal}}</p>
+                <div class="margin_60_35"></div>
+                <hr>
+                <div>
+                    <h4>{{ tourCantidad }} tours</h4>
+                    <div class="row">
+                        <div class="col-sm-5" *ngFor="let tour of tours">
+                            <div class="people-fluid-thumbnail-grid-item">
+                                <div class="contenedor">
+                                    <a [routerLink]="['/tour',tour.slug]" routerLinkActive="router-link-active">
+                                        <img [src]='tour.get_photos[0].photo | imagen:"tours"' alt="" width="100%"
+                                            height="200px">
+                                        <div class="centrado">
+                                            <b>{{tour.name}}</b>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="add_top_30"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin_60_35"></div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="imagenperfil">
+                    <img [src]='usuario?.img | imagen' alt="">
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+        <div class="margin_80"></div>
+    </div>
+</div>

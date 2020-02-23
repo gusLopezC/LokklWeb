@@ -1,4 +1,5 @@
 export class Tours {
+  
     constructor(
         public user_id: string,
         public cuidad: string,

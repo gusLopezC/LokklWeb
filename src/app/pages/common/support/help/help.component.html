@@ -1,0 +1,233 @@
+<br>
+<br>
+<br>
+<br>
+<div class="container margin_60_35" style="transform: none;">
+    <div class="row" style="transform: none;">
+        <aside class="col-lg-3" id="sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+
+            <!--/sticky -->
+            <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+                <div class="box_style_cat" id="faq_box">
+                    <ul id="cat_nav">
+                        <li><a (click)="scroll(target1)" class="active"><i class="icon_document_alt"></i>{{ 'help.Section1' | translate }}</a></li>
+                        <li><a (click)="scroll(target2)"><i class="icon_document_alt"></i>{{ 'help.Section2' | translate }}</a></li>
+                        <li><a (click)="scroll(target3)"><i class="icon_document_alt"></i>{{ 'help.Section3' | translate }}</a></li>
+                        <li><a (click)="scroll(target4)"><i class="icon_document_alt"></i>{{ 'help.Section4' | translate }}</a></li>
+                        <li><a (click)="scroll(target5)"><i class="icon_document_alt"></i>{{ 'help.Section5' | translate }}</a></li>
+                    </ul>
+                </div>
+                <div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+                    <div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                        <div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 295px; height: 1577px;"></div>
+                    </div>
+                    <div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                        <div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--/aside -->
+
+        <div #target1 class="col-lg-9" id="faq">
+            <h4 class="nomargin_top">{{ 'help.Section1' | translate }}</h4>
+            <div role="tablist" class="add_bottom_45 accordion_2" id="payment">
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" href="#collapseOne_payment" aria-expanded="true"><i class="indicator ti-minus"></i>{{ 'help.Payment1' | translate }}</a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne_payment" class="collapse show" role="tabpanel" data-parent="#payment">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.PaymentSection1' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo_payment" aria-expanded="false">
+                                <i class="indicator ti-plus"></i>{{ 'help.Payment2' | translate }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo_payment" class="collapse" role="tabpanel" data-parent="#payment">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.PaymentSection2' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+                <div #target2 class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseThree_payment" aria-expanded="false">
+                                <i class="indicator ti-plus"></i>{{ 'help.Payment3' | translate }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseThree_payment" class="collapse" role="tabpanel" data-parent="#payment">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.PaymentSection3' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+            </div>
+            <!-- /accordion payment -->
+
+            <h4 class="nomargin_top">{{ 'help.Section2' | translate }}</h4>
+            <div role="tablist" class="add_bottom_45 accordion_2" id="tips">
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" href="#collapseOne_tips" aria-expanded="true"><i class="indicator ti-plus"></i> {{ 'help.PlaneatuViaje1' | translate }}</a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne_tips" class="collapse" role="tabpanel" data-parent="#tips">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.PlaneatuViajeSection1' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo_tips" aria-expanded="false">
+                                <i class="indicator ti-plus"></i>{{ 'help.PlaneatuViaje2' | translate }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo_tips" class="collapse" role="tabpanel" data-parent="#tips">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.PlaneatuViajeSection2' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+                <div #target3 class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseThree_tips" aria-expanded="false">
+                                <i class="indicator ti-plus"></i>{{ 'help.PlaneatuViaje3' | translate }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseThree_tips" class="collapse" role="tabpanel" data-parent="#tips">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.PlaneatuViajeSection3' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+            </div>
+            <!-- /accordion suggestions -->
+
+            <h4 class="nomargin_top">{{ 'help.Section3' | translate }}</h4>
+            <div role="tablist" class="add_bottom_45 accordion_2" id="reccomendations">
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" href="#collapseOne_reccomendations" aria-expanded="true"><i class="indicator ti-plus"></i>{{ 'help.AgenteLokkl1' | translate }}</a>
+                        </h5>
+                    </div>
+                    <div id="collapseOne_reccomendations" class="collapse" role="tabpanel" data-parent="#reccomendations">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.AgenteLokklSection1' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo_reccomendations" aria-expanded="false">
+                                <i class="indicator ti-plus"></i>{{ 'help.AgenteLokkl2' | translate }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo_reccomendations" class="collapse" role="tabpanel" data-parent="#reccomendations">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.AgenteLokklSection2' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+                <div #target4 class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseThree_reccomendations" aria-expanded="false">
+                                <i class="indicator ti-plus"></i>{{ 'help.AgenteLokkl3' | translate }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseThree_reccomendations" class="collapse" role="tabpanel" data-parent="#reccomendations">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.AgenteLokklSection3' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+            </div>
+            <!-- /accordion Reccomendations -->
+
+            <h4 class="nomargin_top">{{ 'help.Section4' | translate }}</h4>
+            <div role="tablist" class="add_bottom_45 accordion_2" id="terms">
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" href="#collapseOne_terms" aria-expanded="true"><i class="indicator ti-plus"></i>{{ 'help.Despuesdelviaje1' | translate }}</a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne_terms" class="collapse" role="tabpanel" data-parent="#terms">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.DespuesdelviajeSection1' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo_terms" aria-expanded="false">
+                                <i class="indicator ti-plus"></i>{{ 'help.Despuesdelviaje2' | translate }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo_terms" class="collapse" role="tabpanel" data-parent="#terms">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.DespuesdelviajeSection2' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+                <div #target5 class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseThree_terms" aria-expanded="false">
+                                <i class="indicator ti-plus"></i>{{ 'help.Despuesdelviaje3' | translate }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseThree_terms" class="collapse" role="tabpanel" data-parent="#terms">
+                        <div class="card-body">
+                            <p [innerHTML]=" 'help.DespuesdelviajeSection3' | translate | translate "></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card -->
+            </div>
+            <!-- /accordion Terms -->
+
+
+        </div>
+        <!-- /col -->
+    </div>
+    <!-- /row -->
+</div>

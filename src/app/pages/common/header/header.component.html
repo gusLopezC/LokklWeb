@@ -1,0 +1,69 @@
+<header class="header menu_fixed sticky">
+    <div id="logo">
+        <a routerLink="/home">
+            <img src="assets/img/logo.png" width="133" height="50" alt="logo" class="logo_normal">
+
+        </a>
+    </div>
+    <ul id="top_menu">
+        <li *ngIf="!checkStatus" class="loginmargin">
+            <span><a routerLink="/login" class="loginroute" >{{ 'header.Signup' | translate }}</a></span>
+        </li>
+        <li *ngIf="!checkStatus" class="imglogin">
+            <div>
+                <a class="logged" routerLink="/login">
+                    <img src="assets\img\icon_login.svg" alt="imglogin">
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <div class="dropdown dropdown-user" *ngIf="checkStatus">
+                <a class="logged" data-toggle="dropdown" title="Logged"><img [src]="usuario?.img | imagen"></a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a routerLink="/users/account-welcome" class="pointer">{{ 'header.Profile' | translate }}</a></li>
+                        <li><a routerLink="/users/profile" class="pointer">{{ 'header.EditMyAccount' | translate }}</a></li>
+                        <li><a routerLink="/users/myTraverls" class="pointer">{{ 'header.Mytravels' | translate }}</a></li>
+                        <li *ngIf="usuario?.role == 'USER_ROLE'"><a routerLink="/users/prospects" class="pointer">{{ 'header.Howtowork?' | translate }}</a></li>
+                        <li *ngIf="usuario?.role == 'GUIDE_VERIFIQUED'"><a routerLink="/users/myreservations">{{ 'header.Reservations' | translate }}</a></li>
+                        <li><a routerLink="/users/myTours">{{ 'header.MisTours' | translate }}</a></li>
+                        <li *ngIf="usuario?.role == 'GUIDE_VERIFIQUED'"><a routerLink="/users/calender">Calendario</a></li>
+                        <li><a (click)="_usuarioService.logout()" href="#" class="pointer">{{ 'header.Logout' | translate }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <!-- /top_menu -->
+
+
+    <ul id="top_menu" class="menu-sidebar" style=" float: left;">
+        <li>
+            <div class="dropdown dropdown-user">
+                <a class="logged" data-toggle="dropdown" title="Logged" style="margin-left: -20px;"><img src="/assets/img/icons/banderas/hamburger.svg" alt="hamburger"></a>
+
+                <div class="dropdown-menu menusidebar ">
+                    <!-- menusidebar -->
+                    <ul>
+                        <li><span class="menusidebarspan"><a routerLink="/home">{{ 'header.Home' | translate }}</a></span></li>
+                        <li><span class="menusidebarspan"><a routerLink="/getstarted">{{ 'header.Getstarted' | translate }}</a></span></li>
+                        <li><span class="menusidebarspan"><a routerLink="/aboutus">{{ 'header.AboutUs' | translate }}</a></span></li>
+                        <li><span class="menusidebarspan"><a routerLink="/contact">{{ 'header.Contact' | translate }}</a></span></li>
+                        <li class="btn_home_align"><a class="btn_1 rounded" routerLink="/becomeguide" style="color: #fff !important;">{{ 'header.Becomeguide' | translate }}</a></li>
+                        <li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <nav class="main-menu">
+        <ul>
+            <li><span><a routerLink="/home">{{ 'header.Home' | translate }}</a></span></li>
+            <li><span><a routerLink="/getstarted">{{ 'header.Getstarted' | translate }}</a></span></li>
+            <li><span><a routerLink="/aboutus">{{ 'header.AboutUs' | translate }}</a></span></li>
+            <li><span><a routerLink="/contact">{{ 'header.Contact' | translate }}</a></span></li>
+            <li class="btn_home_align"><a class="btn_1 rounded" routerLink="/becomeguide" style="color: #fff !important;">{{ 'header.Becomeguide' | translate }}</a></li>
+        </ul>
+    </nav>
+</header>
