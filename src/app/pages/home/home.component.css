@@ -1,0 +1,287 @@
+    .home_section {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        background: url(src/assets/img/home/home.jpg) no-repeat center center/cover;
+        background-size: cover;
+    }
+    
+    @media(max-width: 600px) {
+        .home_section {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            background: url(src/assets/img/home/home.jpg) no-repeat center center/cover;
+            background-size: cover;
+            background-position: 92% 55px;
+        }
+    }
+    
+    @media (min-width: 576px) {
+        .col-sm-5 {
+            margin-top: 30%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    
+    @media (min-width: 600px) {
+        .col-sm-5 {
+            margin-top: 0%;
+            flex: 0 0 41.666667%;
+            max-width: 41.666667%;
+        }
+    }
+    
+    .formulariobusqueda {
+        z-index: 2;
+    }
+    
+    @media(max-width: 600px) {
+        #tituloformulario {
+            display: none;
+        }
+    }
+    
+    @media(min-width: 600px) {
+        .divformularioform {
+            padding-left: 10%;
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+        .divformulario {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+    }
+    
+    @media(max-width: 575px) {
+        .formulariobusqueda {
+            z-index: 2;
+            background: #fff !important;
+            margin-top: 90px;
+        }
+        .divformulario {
+            display: none;
+        }
+    }
+    
+    .image-2 {
+        z-index: 1;
+        width: 150px;
+        position: relative;
+        transform: translate3d(-40px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(10deg) skew(0deg, 0deg);
+    }
+    
+    @media(max-width: 1120px) {
+        .image-2 {
+            display: none;
+        }
+    }
+    
+    .textobienvenidamobile {
+        display: flex;
+        text-align: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    
+    @media(min-width: 600px) {
+        .textobienvenidamobile {
+            display: none;
+        }
+    }
+    
+    .div-block1 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        text-align: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background: url(src/assets/img/home/fondozaul.png) no-repeat center center/cover;
+        background-position: 0px 0px;
+        background-size: cover;
+    }
+    
+    @media(max-width: 600px) {
+        .div-block1 {
+            display: none;
+        }
+    }
+    
+    @media(max-width: 400px) {
+        .div-block1 {
+            display: none;
+        }
+    }
+    
+    .spanbottonplay {
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        display: inline-block;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        color: #fff;
+        box-shadow: 0px 10px 30px 0px rgba(1, 84, 85, 0.2);
+    }
+    
+    .paragraph {
+        margin-left: 180px;
+        color: #fff;
+    }
+    
+    @media(max-width: 600px) {
+        .paragraph {
+            margin-left: 0px;
+            color: #fff;
+        }
+    }
+    
+    .home_section_5 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        height: 60vh;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background: url(src/assets/img/home/bg_call_section.jpg) no-repeat center center/cover;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+    
+    .div-block-4 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 40%;
+        height: 60vh;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+    }
+    
+    .div-block-4a {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 60vh;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: end;
+        -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+    }
+    
+    @media(min-width: 600px) {
+        .div-block-4a {
+            background: url(src/assets/img/home/fondozaul.png) no-repeat center center/cover;
+            background-position: 0px 0px;
+            background-size: cover;
+        }
+    }
+    
+    @media(max-width: 600px) {
+        .home_section_5 {
+            height: 80vh;
+            background-position: -278px;
+        }
+        .div-block-4a {
+            height: 80vh;
+        }
+        .div-ocultar {
+            display: none;
+        }
+    }
+    
+    .heading-3 {
+        margin-right: 20px;
+        color: #fff;
+        font-weight: 500;
+        text-align: right;
+    }
+    
+    .paragraph-3 {
+        margin-right: 20px;
+        color: #fff;
+        text-align: right;
+    }
+    
+    .w-button {
+        float: right;
+        display: inline-block;
+        padding: 9px 15px;
+        background-color: #3898EC;
+        color: white;
+        border: 0;
+        line-height: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 0;
+    }
+    
+    .button {
+        position: relative;
+        left: -80px;
+        border-radius: 6px;
+        background-color: #fff;
+        color: #004ea1;
+        font-size: 18px;
+        font-weight: 600;
+    }

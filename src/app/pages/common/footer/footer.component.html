@@ -1,0 +1,95 @@
+<footer>
+    <div class="container margin_60_35">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 p-r-5">
+                <p><img src="assets/img/logo.png" width="180" height="70" alt="Logo"></p>
+                <p>{{ 'footer.mensaje' | translate }}</p>
+                <div class="follow_us">
+                    <ul>
+                        <li>{{ 'footer.FollowUs' | translate }}</li>
+                        <li><a href="https://www.facebook.com/LOKKL-355431198444630/" target="_blank"><i class="ti-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/LOKKL6" target="_blank"><i class="ti-twitter-alt" target="_blank"></i></a></li>
+                        <li><a href="https://www.instagram.com/lokklmx/" target="_blank"><i class="ti-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 ml-lg-auto">
+                <h5>{{ 'footer.Usefullinks' | translate }}</h5>
+                <ul class="links">
+                    <li><a routerLink="/getstarted">{{'header.Getstarted' | translate }}</a></li>
+                    <li><a routerLink="/aboutus">{{ 'header.AboutUs' | translate }}</a></li>
+                    <li><a routerLink="/login">{{ 'footer.Login' | translate }}</a></li>
+                    <li><a routerLink="/contact">{{ 'header.Contact' | translate }}</a></li>
+                    <li><a routerLink="/becomeguide">{{ 'header.Becomeguide' | translate }}</a></li>
+                    <li><a routerLink="/login/register-guide">{{ 'footer.Register' | translate }}</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5>{{ 'footer.ContactwithUs' | translate }}</h5>
+                <ul class="contacts">
+                    <li><a href="https://wa.me/5214425944974" target="_blank"><i class="ti-mobile"></i> + 52 442 594 4974 </a></li>
+                    <li><a href="mailto:iam@lokkl.com"><i class="ti-email"></i> iam@lokkl.com</a></li>
+                </ul>
+                <!-- <div id="newsletter">
+                    <h6>Newsletter</h6>
+                    <div id="message-newsletter"></div>
+                    <form method="post" action="assets/newsletter.php" name="newsletter_form" id="newsletter_form">
+                        <div class="form-group">
+                            <input type="email" name="email_newsletter" id="email_newsletter" class="form-control" placeholder="Your email">
+                            <input type="submit" value="Submit" id="submit-newsletter">
+                        </div>
+                    </form>
+                </div> -->
+            </div>
+        </div>
+        <!--/row-->
+        <hr>
+        <div class="row">
+            <div class="col-lg-6">
+                <ul id="footer-selector">
+                    <li>
+                        <div class="styled-select" id="lang-selector">
+                            <select (change)="changeLang($event.target.value)">
+                                <option value="es"> {{ 'termsandconditions.español' | translate }} </option>
+                                <option value="en"> {{ 'termsandconditions.ingles' | translate }} </option>
+                              </select>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="styled-select" id="currency-selector">
+                            <select change>
+                                <option value="US Dollars" selected>US Dollars</option>
+                                <option value="Euro">Euro</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><img src="assets/img/cards_all.svg" alt="cards"></li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <ul id="additional_links">
+                    <li><a routerLink="/support/privacity">{{ 'footer.Privacy' | translate }}</a></li>
+
+                    <li><a routerLink="/support/termsAndConditions">{{ 'footer.Termsandconditions' | translate }}</a>
+                        <img src="assets/img/tikislokkl/Policia.png" alt="policia" width="45px"></li>
+                    <li><a routerLink="/support/help">{{ 'header.Help' | translate }}</a></li>
+                    <li><span>© 2019 LOKKL</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<a href="https://wa.me/5214425944974" target="_blank">
+    <div id="toTop">
+        <i class="icon-comment-6" style="
+    position: relative;
+    display: block;
+    top: 50%;
+    -webkit-transform: translateY(-55%);
+    transform: translateY(-55%);"></i>
+    </div>
+    <!-- Back to top button -->
+</a>
+
+<!--/footer-->

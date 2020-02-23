@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {
   UsuarioService,
   RecoveryPasswordService,
+  ToursCiudadService,
+
 /*
   SettingService,
   ProspectosService,
@@ -11,7 +13,6 @@ import {
   EmailService,
   GuiaService,
   ToursService,
-  ToursCiudadService,
   ComentariosService,
   PaymentService,
   ReservasService,
@@ -27,6 +28,7 @@ import {
   providers: [
     UsuarioService,
     RecoveryPasswordService,
+    ToursCiudadService,
    /*
     SettingService,
     ProspectosService,
@@ -34,7 +36,6 @@ import {
     EmailService,
     GuiaService,
     ToursService,
-    ToursCiudadService,
     ComentariosService,
     PaymentService,
     ReservasService,

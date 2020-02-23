@@ -1,0 +1,110 @@
+<div class="container-fluid pl-lg-5 pr-lg-5">
+    <section class="add_bottom_45">
+        <div class="main_title_3" style="text-align: center;">
+            <h2>{{ 'home.CiudadesTexto' | translate}}</h2>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="city-card">
+                    <div class="city-getaway-image">
+                        <img src="assets/img/aboutus/mosaico/Mexico.jpg" alt="Mexico" width="100%">
+                    </div>
+                    <div class="city-cuadroverde">
+                        <h3 class="city-title">{{ 'home.RivieraMaya' | translate}}</h3>
+                        <p class="city-text">{{ 'home.RivieraMayaTexto' | translate}}</p>
+                        <button class="btn btn-dark" [routerLink]="['/tours','Mérida','ChIJFw1Fq1xxVo8RCeurFVcV_F0']" routerLinkActive="router-link-active">{{ 'home.Descubremás' | translate}}</button>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="city-card">
+                    <div class="city-getaway-image">
+                        <img src="assets/img/aboutus/mosaico/Peru.png" alt="ciudadPeru" width="100%">
+                    </div>
+                    <div class="city-cuadroyellow">
+                        <h3 class="city-title">{{ 'home.Cusco' | translate}}</h3>
+                        <p class="city-text">{{ 'home.CuscoTexto' | translate}}</p>
+                        <button class="btn btn-dark" [routerLink]="['/tours','Cusco','ChIJMYRZJtjVbZERXTEYI8yWqSo']">{{ 'home.Descubremás' | translate}}</button>
+                        <br>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="margin_30"></div>
+    </section>
+
+</div>
+<!-- 
+    *
+    *
+    *
+    *  Scroll infinite donde trae ls tours
+    *
+    *
+    *
+    -->
+
+<div class="container-fluid">
+
+    <div infiniteScroll (scrolled)="onScroll($event)">
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let tour of dataList" style="margin-bottom: 50px;">
+                <div [routerLink]="['/tour',tour.slug]" style="height: 100%;">
+                    <div class="box_grid_tour">
+                        <figure>
+                            <img [src]='tour.get_photos[0].photo | imagen:"tours"' class="img-fluid" alt="fototour" style="height: 100%; width: 100%;">
+                            <small>{{tour.categories}}</small>
+                        </figure>
+                        <div class="wrapper">
+                            <h6>{{tour.name}}</h6>
+                            <span class="price">Desde <strong>${{tour.price}} {{tour.moneda}}</strong> /por persona</span>
+                        </div>
+                        <ul>
+                            <li><i class="icon_clock_alt"></i> {{tour.duration}} hrs</li>
+                            <li>
+                                <div class="score">
+                                    <span>
+                                                                        <div class="cat_star" *ngIf="tour.calification == 5 ">
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                        </div>
+                                                                        <div class="cat_star" *ngIf="tour.calification >= 4 && tour.calification <= 4.9">
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                        </div>
+                                                                        <div class="cat_star" *ngIf="tour.calification >= 3 && tour.calification <= 3.9">
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                        </div>
+                                                                        <div class="cat_star" *ngIf="tour.calification >= 2 && tour.calification <= 2.9">
+                                                                            <i class="icon_star"></i>
+                                                                            <i class="icon_star"></i>
+                                                                        </div>
+                                                                        <div class="cat_star" *ngIf="tour.calification >= 1 && tour.calification <= 1.9">
+                                                                            <i class="icon_star"></i>
+                        
+                                                                        </div>
+                                                                    </span>
+                                    <!-- <strong class="calificacionazul">{{tour.calification}}</strong>  -->
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
