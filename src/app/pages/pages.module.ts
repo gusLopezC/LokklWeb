@@ -12,7 +12,7 @@ import { ShareModule } from '@ngx-share/core';
 import { HttpClient, HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-// import { NgxGalleryModule } from 'ngx-gallery';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 
 // Rutas
@@ -61,7 +61,7 @@ import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.compon
         HttpClientModule,       // (Required) For share counts
         HttpClientJsonpModule,  // (Optional) Add if you want tumblr share counts
         ShareModule,
-        // NgxGalleryModule,
+        NgxGalleryModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyDJ-1MH4tKasGZGBdQ7Kp9LJqSSrTSy_Uo',
             libraries: ['places']
