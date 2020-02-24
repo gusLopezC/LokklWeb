@@ -5,13 +5,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { AgmCoreModule } from '@agm/core';
 import { ShareModule } from '@ngx-share/core';
-import { ShareButtonsModule } from '@ngx-share/buttons';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 // import { NgxGalleryModule } from 'ngx-gallery';
@@ -30,15 +28,11 @@ import { ContactComponent } from './public/contact/contact.component';
 import { BecomeguideComponent } from './public/becomeguide/becomeguide.component';
 import { MosaicoComponent } from './public/aboutus/mosaico/mosaico.component';
 
-// import { TourComponent } from './public/tour/tour/tour.component';
-// import { TourdetailsComponent } from './public/tour/tourdetails.component';
+import { TourComponent } from './public/tour/tour/tour.component';
+import { TourdetailsComponent } from './public/tour/tourdetails.component';
 // import { CarouselModule } from '../services/carousel/carousel.module';
 import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.component';
 
-
-export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
 
 @NgModule({
     declarations: [
@@ -47,8 +41,8 @@ export function createTranslateLoader(http: HttpClient) {
         ContactComponent,
         BecomeguideComponent,
         MosaicoComponent,
-        //TourComponent,
-        //TourdetailsComponent,
+        TourComponent,
+        TourdetailsComponent,
         ProfilelokklComponent,
     ],
     exports: [
@@ -64,16 +58,10 @@ export function createTranslateLoader(http: HttpClient) {
         RecaptchaFormsModule,
         // CarouselModule,
         TranslateModule,
+        HttpClientModule,       // (Required) For share counts
+        HttpClientJsonpModule,  // (Optional) Add if you want tumblr share counts
         ShareModule,
-        ShareButtonsModule,
         // NgxGalleryModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (createTranslateLoader),
-                deps: [HttpClient]
-            }
-        }),
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyDJ-1MH4tKasGZGBdQ7Kp9LJqSSrTSy_Uo',
             libraries: ['places']

@@ -1,3 +1,6 @@
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -23,9 +26,15 @@ export class ToursService {
   token: string;
   usuario: Usuario;
 
-  constructor(public http: HttpClient, public router: Router, public _usuarioService: UsuarioService, ) {
-    this.token = localStorage.getItem('token');
-    this.usuario = this._usuarioService.user;
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    public http: HttpClient,
+    public router: Router,
+    public _usuarioService: UsuarioService, ) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.token = localStorage.getItem('token');
+      this.usuario = this._usuarioService.user;
+    }
   }
 
 
@@ -82,11 +91,12 @@ export class ToursService {
   }
 
   subirImagenTour(fotos: File[], id: string) {
-    this.token = localStorage.getItem('token');
+    if (isPlatformBrowser(this.platformId)) {
+      this.token = localStorage.getItem('token');
+    }
+    
     const url = URL_SERVICIOS + '/api/tours/uploadFiles/' + id;
-
     const formData = new FormData();
-
     for (let i = 0; i < fotos.length; i++) {
       formData.append('file[' + [i] + ']', fotos[i]);
     }

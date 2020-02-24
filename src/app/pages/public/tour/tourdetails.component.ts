@@ -1,5 +1,9 @@
+
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+
 
 import { ActivatedRoute, Router } from '@angular/router';
 import swal from 'sweetalert2';
@@ -14,7 +18,8 @@ declare var google: any;
 declare namespace google.maps.places {
   export interface PlaceResult {
     place_id: string;
-    address_components: any; geometry }
+    address_components: any; geometry
+  }
 }
 
 @Component({
@@ -43,6 +48,7 @@ export class TourdetailsComponent implements OnInit {
 
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private rutaActiva: ActivatedRoute,
     public _toursService: ToursService,
     private mapsAPILoader: MapsAPILoader,
@@ -60,26 +66,29 @@ export class TourdetailsComponent implements OnInit {
   }//end ngOnInit
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      // load Places Autocomplete
-      this.mapsAPILoader.load().then(() => {
-        this.geoCoder = new google.maps.Geocoder;
-        let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-          // types: ["address"]
-        });
+    if (isPlatformBrowser(this.platformId)) {
 
-        autocomplete.addListener("place_changed", () => {
-          this.ngZone.run(() => {
-            // get the place result
-            let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-            this.ciudadbusqueda = place.address_components[0].long_name;
-            this.placeID = place.place_id;
+      setTimeout(() => {
+        // load Places Autocomplete
+        this.mapsAPILoader.load().then(() => {
+          this.geoCoder = new google.maps.Geocoder;
+          let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+            // types: ["address"]
+          });
 
+          autocomplete.addListener("place_changed", () => {
+            this.ngZone.run(() => {
+              // get the place result
+              let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+              this.ciudadbusqueda = place.address_components[0].long_name;
+              this.placeID = place.place_id;
+
+            });
           });
         });
-      });
 
-    }, 5000);
+      }, 5000);
+    }
   }
 
   buscarTourCuidad() {

@@ -30,11 +30,10 @@ const pagesRoutes: Routes = [
     {
         path: 'profile/:id', pathMatch: 'full', component: ProfilelokklComponent
     },
-    /*
     {
         path: 'tour/:slug', pathMatch: 'full', component: TourComponent
     },
-    
+    /*
     {
         path: 'payment', loadChildren: './public/tour/payment/payment.module#PaymentModule',
     },

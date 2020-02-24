@@ -54,6 +54,7 @@ export class TourComponent implements OnInit {
     public _comentarioService: ComentariosService,
     public _registerVisitService: RegisterVisitService,
     public router: Router, ) {
+    console.log(share);
     this.usuario = this._usuarioService.user;
   }
 

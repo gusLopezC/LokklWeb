@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     },
     {
         path: '',
-        loadChildren: './pages/pages.module#PagesModule', data: { preload: true }
+        loadChildren: './pages/pages.module#PagesModule', data: { preload: false }
     },
     {
         path: 'login', canActivate: [BloqueaLoginGuard], loadChildren: './login/login.module#LoginModule',
