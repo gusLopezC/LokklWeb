@@ -1,0 +1,107 @@
+<br><br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="title-lv1 border-bottom margin-bottom">
+                {{ 'reservaciones.Reservas' | translate }} </h1>
+        </div>
+    </div>
+</div>
+<div *ngIf="cargando">
+    <!--  <app-spineer></app-spineer>-->
+</div>
+<div class="container">
+    <div class="row" *ngIf="!cargando">
+        <div class="tercer_nav" style="position: inherit !important">
+            <div class="container">
+                <ul class="clearfix">
+                    <li (click)="obtenerReservaciones()"><a
+                            class="active">{{ 'reservaciones.Vigentes' | translate }}</a></li>
+                    <li (click)="mostrarHistorial()"><a>{{ 'reservaciones.Historial' | translate }}</a></li>
+                    <li>
+                        <a></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-sm-12" *ngIf="HayTours">
+            <div class="list_general" *ngFor="let reserva of reservas">
+                <ul>
+                    <li>
+                        <figure><img [src]='reserva.get_guia[0].img | imagen' alt=""></figure>
+                        <h4>{{reserva.NameTour }}
+                            <i class="pending"
+                                *ngIf="reserva.status == 'Pendiente'">{{ 'reservaciones.Pendiente' | translate }} </i>
+                            <i class="approved"
+                                *ngIf="reserva.status == 'Aceptado'">{{ 'reservaciones.Aceptado' | translate }} </i>
+                            <i class="approved"
+                                *ngIf="reserva.status == 'Realizado'">{{ 'reservaciones.Aceptado' | translate }} </i>
+                            <i class="cancel"
+                                *ngIf="reserva.status == 'Cancelado'">{{ 'reservaciones.Cancelado' | translate }} </i>
+                        </h4>
+                        <ul class="booking_list">
+                            <li><strong>{{ 'reservaciones.Fechareserva' | translate }}</strong>
+                                {{reserva.Fechareserva }}</li>
+                            <li><strong>{{ 'reservaciones.Numerodeturistas' | translate }}</strong>
+                                {{reserva.CantidadTuristas }}</li>
+
+                            <li><strong>{{ 'reservaciones.Tuguia' | translate }}: </strong> {{reserva.get_guia[0].name}}
+                            </li>
+                        </ul>
+                        <div *ngIf="reserva.status == 'Pendiente'">
+                            <p><a class="btn_1 gray" [routerLink]="['/users/chat',reserva.order_nr]"><i
+                                        class="fa fa-fw fa-envelope"></i>{{ 'reservaciones.EnviarMensaje' | translate }}</a>
+                            </p>
+                            <ul class="buttons">
+
+                                <li (click)="cancelarReservacion(reserva.order_nr)"><a class="btn_1 gray delete"><i
+                                            class="fa fa-fw fa-times-circle-o"></i>
+                                        {{ 'reservaciones.Cancelar' | translate }}</a></li>
+                            </ul>
+                        </div>
+                        <div *ngIf="reserva.status == 'Aceptado'">
+                            <p><a class="btn_1 gray" [routerLink]="['/users/chat',reserva.order_nr]"
+                                    routerLinkActive="router-link-active"><i
+                                        class="fa fa-fw fa-envelope"></i>{{ 'reservaciones.EnviarMensaje' | translate }}</a>
+                            </p>
+                            <ul class="buttons">
+                                <li (click)="cancelarReservacion(reserva.order_nr)"><a class="btn_1 gray delete"><i
+                                            class="fa fa-fw fa-times-circle-o"></i>
+                                        {{ 'reservaciones.Cancelar' | translate }}</a></li>
+                            </ul>
+                        </div>
+                        <div *ngIf="reserva.status == 'Realizado'">
+                            <ul class="buttons">
+                                <li>
+                                    <p><b style="color: #5DD167;">{{ 'reservaciones.TourRealizado' | translate }}</b>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div *ngIf="reserva.status == 'Cancelado'">
+                            <ul class="buttons">
+                                <p><b>{{ 'reservaciones.TourCancelado' | translate }}</b></p>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <br><br>
+            </div>
+        </div>
+        <div class="col-sm-12" *ngIf="NoHayTours">
+            <div class="alert alert-warning" role="alert">
+                <h4 class="alert-heading">{{ 'alertas.MisReservacionesTitle' | translate }}</h4>
+                <br>
+                <h6>{{ 'alertas.MisReservacionesMensaje' | translate }}</h6>
+                <hr>
+            </div>
+
+        </div>
+        <div>
+
+
+        </div>
+        <div style="margin-bottom: 50%"></div>
+    </div>
+</div>

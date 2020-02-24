@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import {
   UsuarioService,
   RecoveryPasswordService,
@@ -11,12 +10,13 @@ import {
   ComentariosService,
   RegisterVisitService,
   PaymentService,
+  ProspectosService,
+  ReservasService,
+  GuiaService,
 
   /*
     SettingService,
-    ProspectosService,
     GuiaService,
-    ReservasService,
     ChatService,
     */
 } from './service.index';
@@ -24,7 +24,6 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
   ],
   providers: [
     UsuarioService,
@@ -36,12 +35,12 @@ import {
     ComentariosService,
     RegisterVisitService,
     PaymentService,
+    ProspectosService,
+    ReservasService,
+    GuiaService,
 
     /*
      SettingService,
-     ProspectosService,
-     GuiaService,
-     ReservasService,
      ChatService,
      */
   ],

@@ -14,6 +14,7 @@ export class Payment {
         public id_tour: string,
         public name_tour: string,
         public id_vendedor: string,
+        public NameTour?: string,
     ) { }
 
 }

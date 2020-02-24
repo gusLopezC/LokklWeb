@@ -9,7 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { AgmCoreModule } from '@agm/core';
 import { ShareModule } from '@ngx-share/core';
-import { HttpClient, HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
@@ -31,7 +30,10 @@ import { MosaicoComponent } from './public/aboutus/mosaico/mosaico.component';
 import { TourComponent } from './public/tour/tour/tour.component';
 import { TourdetailsComponent } from './public/tour/tourdetails.component';
 // import { CarouselModule } from '../services/carousel/carousel.module';
+
+
 import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.component';
+import { SpineerComponent } from './common/spineer/spineer.component';
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.compon
         TourComponent,
         TourdetailsComponent,
         ProfilelokklComponent,
+        SpineerComponent
     ],
     exports: [
     ],
@@ -58,8 +61,6 @@ import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.compon
         RecaptchaFormsModule,
         // CarouselModule,
         TranslateModule,
-        HttpClientModule,       // (Required) For share counts
-        HttpClientJsonpModule,  // (Optional) Add if you want tumblr share counts
         ShareModule,
         NgxGalleryModule,
         AgmCoreModule.forRoot({

@@ -1,0 +1,15 @@
+<h6 style="text-align: center">
+    {{ 'validateIdentify.0fficialidentification' | translate }}</h6>
+<br>
+<br>
+<div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event,'document_identificacion')">
+    <ngx-dropzone-label>Drop you media1!</ngx-dropzone-label>
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+        <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
+    </ngx-dropzone-image-preview>
+    <br>
+    <br>
+</div>
+<div class="card">
+    <p>{{ 'validateIdentify.0fficialidentificationText' | translate }}</p>
+</div>

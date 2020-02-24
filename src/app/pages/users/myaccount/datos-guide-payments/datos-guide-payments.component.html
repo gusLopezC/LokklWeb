@@ -1,0 +1,74 @@
+<div class="bg_color_1">
+    <div class="container">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#"></a>
+            </li>
+            <li class="breadcrumb-item active"></li>
+        </ol>
+        <br>
+        <div class="row animated fadeInLeft" *ngIf="cargando">
+            <br><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="row" *ngIf="!cargando">
+            <div class="col-sm-6">
+                <form ngNativeValidate #f='ngForm' (ngSubmit)="mandarDatosPago(f)">
+                    <h1>{{guia.name}}</h1>
+                    <div class="form-group">
+                        <label for="Pais">Selecciona tu pais</label>
+                        <ng-select [options]="paises" name="pais" [(ngModel)]="guia.pais" required>
+                        </ng-select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipomoneda">Moneda de pago</label>
+                        <select name="tipomoneda" class="form-control" [(ngModel)]="guia.tipomoneda" required>
+                           <option value="Peso Mexicano">Peso mexicano</option>
+                           <option value="Dolar estadonidense">Dolar estadonidense</option>
+                           <option value="Euro">Euro </option>
+                       </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroCuenta">No. Cuenta Paypal</label>
+                        <input name="numeroCuenta" class="form-control" type="text" placeholder="No. Cuenta Paypal" maxlength="18" [(ngModel)]=" guia.numeroCuenta">
+                    </div>
+                    <div class="form-group ">
+                        <label for="clabeInterbancaria">Cuenta/CLABE-interbancaria para tranferencia</label>
+                        <input name="clabeInterbancaria" class="form-control " type="text " placeholder="Cuenta interbancaria " maxlength="18 " [(ngModel)]="guia.clabeInterbancaria" required>
+                    </div>
+                    <div class="form-group ">
+                        <label for="CURP">Ingresa el nombre de la instución bancaria. </label>
+                        <input name="CURP" class="form-control " type="text " placeholder=" " maxlength="30 " minlength="5" [(ngModel)]="guia.CURP" required>
+                    </div>
+                    <div class="form-group ">
+                        <label for="RFC">Ingresa tu numero de registro fiscal o de contribuyente (ej: RFC)</label>
+                        <input name="RFC" class="form-control " type="text " placeholder="RFC" [(ngModel)]="guia.RFC" required>
+                    </div>
+                    <button class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer " type="submit ">Send</button>
+                </form>
+            </div>
+            <div class="col-sm-6 ">
+                <img class="image-form wow ZoomIn" src="assets/img/becomeguide/tiki_icono_money.png " width="100% ">
+            </div>
+        </div>
+    </div>
+
+</div>

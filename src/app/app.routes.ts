@@ -23,11 +23,11 @@ const appRoutes: Routes = [
     {
         path: 'support', loadChildren: './pages/common/support/support.module#SupportModule',
     },
-    /* {
-         path: 'users',
-         canActivate: [LoginGuardGuard],
-         loadChildren: './pages/users/users.module#UsersModule'
-     },*/
+    {
+        path: 'users',
+        canActivate: [LoginGuardGuard],
+        loadChildren: './pages/users/users.module#UsersModule'
+    },
     { path: '**', component: NopagefoundComponent }
 
 ];

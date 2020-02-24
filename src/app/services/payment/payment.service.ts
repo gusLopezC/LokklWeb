@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Payment } from 'src/app/models/payment.model';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
+import { Payment } from 'src/app/models/payment.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 import { map, catchError } from 'rxjs/operators';
@@ -15,8 +17,14 @@ import swal from 'sweetalert2';
 export class PaymentService {
   token: string;
 
-  constructor(public http: HttpClient, public router: Router) {
-    this.token = localStorage.getItem('token');
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    public http: HttpClient,
+    public router: Router) {
+    if (isPlatformBrowser(this.platformId)) {
+
+      this.token = localStorage.getItem('token');
+    }
   }
 
   crearPagoStripe(pago: Payment) {

@@ -1,0 +1,169 @@
+<div class="bg_color_1">
+    <div class="container">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#"></a>
+            </li>
+            <li class="breadcrumb-item active"></li>
+        </ol>
+        <br><br>
+
+        <!--  <app-myaccount></app-myaccount> -->
+        <div class="box_general padding_bottom">
+            <div class="header_box version_2">
+                <h2>{{usuario.name}}, {{ 'profile.WelcometoLOKKL' | translate }} </h2>
+                <br>
+                <h5>{{ 'profile.WelcometoLOKKLsub' | translate }} </h5>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <p> {{ 'profile.TextPhoto' | translate }}</p>
+                        <br>
+                        <label class="hoverable" for="fileInput">
+                        <img *ngIf="!imagenTemp" [src]='usuario.img | imagen' class="imgperfil">
+                        <img *ngIf="imagenTemp" [src]='imagenTemp' class="imgperfil">
+                        <div class="hover-text">
+                            {{ 'profile.UpdatePhoto' | translate }}
+                                <h4 class="success-message" *ngIf="imagenSubir"></h4>
+                                </div>
+                                <div class="background"></div>
+                        <br>
+                        <input id="fileInput" (change)="seleccionImage($event.target.files[0])" type="file" name="photo">
+                        <br>
+                    </label>
+                        <br>
+                        <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer">
+                          <i class="fa fa-save" style="margin-top: 17px;"></i>
+                          {{ 'profile.UpdatePhoto' | translate }}
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar( f.value)">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>{{ 'profile.Name' | translate }}</label>
+                                    <input [(ngModel)]="usuario.name" name="name" type="text" class="form-control" value="{{usuario.name}}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>{{ 'profile.Telephone' | translate }}</label>
+                                    <input [(ngModel)]="usuario.telephone" name="telephone" type="text" class="form-control" value="{{usuario.telephone}}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>{{ 'profile.Email' | translate }}</label>
+                                    <input [(ngModel)]="usuario.email" name="email" type="email" class="form-control" value="{{usuario.email}}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="tipomoneda">{{ 'profile.Sexo' | translate }}</label>
+                                    <select name="tipomoneda" class="form-control" [(ngModel)]="usuario.sexo" required>
+                                   <option value="Masculino">{{ 'profile.Masculino' | translate }}</option>
+                                   <option value="Femenino">{{ 'profile.Femenino' | translate }}</option>
+                                   <option value="Otro">Otro</option>
+                               </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="width: 100%;">{{ 'profile.ArchivoVerificacion' | translate }}<strong *ngIf="usuario.archivovalidacion" class="textoverde">Archivo publicado</strong></label>
+                                    <input (change)="archivoVerificacion($event.target.files[0])" name="archivovalidacion" type="file" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>{{ 'profile.Whitebiography' | translate }}</label>
+                                    <p>{{ 'profile.Textbiography' | translate }}</p>
+                                    <textarea [(ngModel)]="usuario.infopersonal" name="infopersonal" style="height:100px;" class="form-control" value="{{usuario.infopersonal}}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /row-->
+                        <button type="submit" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer">
+                                    <i class="fa fa-save"></i>{{ 'profile.Send' | translate }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <app-contacto-emergencia></app-contacto-emergencia>
+        <!-- /box_general-->
+        <div class="box_general padding_bottom">
+            <div class="row">
+                <div class="col-sm-6" *ngIf="usuario.verified == '0'">
+                    <div class="card-body alert alert-warning ">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6>{{ 'profile.ValidateEmail' | translate }}</h6>
+                                <p>{{usuario.email}}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="assets/img/icons/profile/emailnovalidate.svg" alt="" width="100px">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <button (click)="verificarCuentaResend()" type="button" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" data-automation="account-welcome-page-create-product-action"><span>{{ 'profile.Send' | translate }}</span></button>
+                    </div>
+                </div>
+                <div class="col-sm-6" *ngIf="usuario.verified == '1'">
+                    <div class="card-body alert alert-success ">
+
+                        <h6>{{ 'profile.Validaremail' | translate }} </h6>
+                        <p style="text-align: left"> {{ 'profile.Youemail' | translate }} {{usuario.email}} <br> {{ 'profile.hasbeenverified' | translate }}</p>
+                        <img src="assets/img/icons/profile/email.svg" alt="" width="100px">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card-body ">
+
+                        <h6>{{ 'profile.Deactivate' | translate }}</h6>
+                        <p>{{ 'profile.DeactivateText' | translate }} <br><br></p>
+                        <button type="button" (click)="eliminarCuenta()" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" data-automation="account-welcome-page-create-product-action"><span>{{ 'profile.Deleteaccount' | translate }}</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" *ngIf="PasswordRedSocial">
+                <br>
+                <div class="padding_bottom">
+                    <div class="header_box version_2">
+                        <h2>{{ 'profile.Changepassword' | translate }}</h2>
+                    </div>
+                    <form ngNativeValidate [formGroup]="forma" (ngSubmit)="cambiarPassword()">
+                        <div class="form-group">
+                            <label>{{ 'profile.Oldpassword' | translate }}</label>
+                            <input formControlName="password" name="password" class="form-control" type="password" autocomplete="new-password" required placeholder="{{ 'login.Password' | translate }}">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ 'profile.Newpassword' | translate }}</label>
+                            <input formControlName="new_password" name="new_password" class="form-control" type="password" autocomplete="new-password" required placeholder="{{ 'login.Password' | translate }}">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ 'profile.Confirmnewpassword' | translate }}</label>
+                            <input formControlName="new_password2" name="password2" class="form-control" type="password" autocomplete="new-password" required placeholder="{{ 'login.Password' | translate }}">
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer">
+                                    <i class="fa fa-save"></i>{{ 'profile.Send' | translate }}</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- /row-->
+    </div>
+    <!-- /.container-fluid-->
+</div>

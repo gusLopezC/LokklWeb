@@ -1,0 +1,291 @@
+<div class="bg_color_1">
+    <br>
+    <br>
+    <br>
+    <section class="page-section-createtour">
+        <div class="container page-section-header">
+            <h1 class="section-title-mega">{{ 'createTour.Iniciotitle' | translate }}</h1>
+        </div>
+        <div class="basenegro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="section-title-item"><span>1.</span> {{ 'createTour.Iniciostep1' | translate }}</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p class="section-title-item"><span>2.</span> {{ 'createTour.Iniciostep2' | translate }}</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p class="section-title-item"><span>3.</span> {{ 'createTour.Iniciostep3' | translate }}</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p class="section-title-item"><span>4.</span> {{ 'createTour.Iniciostep4' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <br><br>
+                <p style="text-align: center; color:#fff;">{{ 'help.Needmoreinformation?' | translate }} <strong><a [routerLink]="['/support/help']" routerLinkActive="router-link-active" style="color: #fff;">{{ 'help.ClickHere' | translate }}</a></strong></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="formulario">
+        <form ngNativeValidate [formGroup]="miFormulario" (submit)="mandarDatosTour(miFormulario)">
+            <div class="section-21">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="assets/img/becomeguide/Mapa.png" alt="" width="300" height="300" class="centrarimagen">
+                            </div>
+                            <div class="col-sm-8" style="padding: 64px;">
+                                <div class="textoblanco">
+                                    <h2 style="color:#fff;">1. {{ 'createTour.Iniciostep1' | translate }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container margin_60_35">
+                <div class="form-group">
+                    <h4>{{ 'createTour.Paso1Tile' | translate }}</h4>
+                    <p>{{ 'createTour.Paso1Texto' | translate }}
+                    </p>
+                    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search name="cuidad" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <h4>{{ 'createTour.Paso2Title' | translate }}</h4>
+                    <p>{{ 'createTour.Paso2Texto' | translate }}</p>
+                </div>
+            </div>
+            <agm-map [latitude]="latitude" [longitude]="longitude" [disableDefaultUI]="false" [scrollwheel]="true" [zoom]="zoom">
+
+                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerMoved($event)"> </agm-marker>
+            </agm-map>
+            <br>
+            <div class="container">
+                <div class="form-group">
+                    <h4>{{ 'createTour.Paso3Title' | translate }}</h4>
+                    <p>{{ 'createTour.Paso3Texto' | translate }}
+                    </p>
+                    <input type="text" class="form-control" formControlName="puntoInicio" required placeholder="{{ 'createTour.Paso3Texto2' | translate }}">
+                </div>
+                <br>
+            </div>
+
+
+            <div class="section-21">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="assets/img/becomeguide/tiki_icono_fun.png" alt="" width="300" height="300" class="centrarimagen">
+                            </div>
+                            <div class="col-sm-8" style="padding: 64px;">
+                                <div class="textoblanco">
+                                    <h2 style="color:#fff;">2. {{ 'createTour.Iniciostep2' | translate }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container margin_60_35">
+                <div class="form-group">
+                    <h4>{{ 'createTour.Paso4Title' | translate }}</h4>
+                    <p>{{ 'createTour.Paso4Texto' | translate }} </p>
+                    <input type="text" class="form-control" formControlName="name" required placeholder="E.g 'Descubre chichen itza at night'">
+                </div>
+                <br>
+                <div class="form-group">
+                    <h4>{{ 'createTour.Paso5Title' | translate }}</h4>
+                    <ckeditor [editor]="Editor" formControlName="schedulle" rows="10" required data=""></ckeditor>
+                </div>
+                <br>
+            </div>
+
+            <div class="section-21">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="assets/img/becomeguide/Mapa.png" alt="" width="300" height="300" class="centrarimagen">
+                            </div>
+                            <div class="col-sm-8" style="padding: 64px;">
+                                <div class="textoblanco">
+                                    <h2 style="color:#fff;">3. {{ 'createTour.Iniciostep3' | translate }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container margin_60_35">
+                <div class="form-group">
+                    <h4>{{ 'createTour.Paso6Title' | translate }}</h4>
+                    <p>{{ 'createTour.Paso6Texto' | translate }}</p>
+                    <div formArrayName="itinerary">
+                        <div class="row" style="margin-top: 20px;" *ngFor="let item of getItinerarys.controls; let pointIndex=index" [formGroupName]="pointIndex">
+                            <div class="col-sm-10">
+                                <input class="form-control" formControlName="itinerary" />
+                            </div>
+                            <div class="col-sm-2">
+                                <a class="btn btn-danger" (click)="removeItinerary(pointIndex)"><span style="color:#fff">&nbsp;&nbsp;<i>&times;</i>&nbsp;&nbsp;</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-link btn-block" (click)="addItinerary()"><img src="assets/img/icons/tour/add.png" alt="" height="30px"></a>
+                </div>
+                <br>
+                <div class="form-group">
+                    <h4>{{ 'createTour.Paso7Texto' | translate }}:</h4>
+                    <p>{{ 'createTour.Paso7Title' | translate }}</p>
+                    <div formArrayName="whatsIncluded">
+                        <div class="row" style="margin-top: 20px;" *ngFor="let item of getwhatsIncludeds.controls; let pointIndex=index" [formGroupName]="pointIndex">
+                            <div class="col-sm-10">
+                                <input class="form-control" formControlName="whatsIncluded" />
+                            </div>
+                            <div class="col-sm-2">
+                                <a class="btn btn-danger" (click)="removewhatsIncluded(pointIndex)"><span style="color:#fff">&nbsp;&nbsp;&times;&nbsp;&nbsp;</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-link btn-block" (click)="addwhatsIncluded()"><img src="assets/img/icons/tour/add.png" alt="" height="30px"></a>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <h4>{{ 'createTour.Paso8Title' | translate }}</h4>
+                            <br>
+                            <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="categories" required>
+                                <option value="Cultura">{{ 'createTour.CategoriaCultura' | translate }}</option>
+                                <option value="Histórico">{{ 'createTour.CategoriaHistórico' | translate }}</option>
+                                <option value="Ecoturistico">{{ 'createTour.CategoriaEcoturistico' | translate }}</option>
+                                <option value="Aventura">{{ 'createTour.CategoriaAventura' | translate }}</option>
+                                <option value="Gastronomico">{{ 'createTour.CategoriaGastronomico' | translate }}</option>
+                                <option value="Deportivo">{{ 'createTour.CategoriaDeportivo' | translate }}</option>
+    
+                            </select>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <h4>{{ 'createTour.Paso9Title' | translate }}</h4>
+                            <br>
+                            <div style="width: 50%;">
+                                <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="duration" required>
+                                    <option value="01:00">01:00 hrs</option>
+                                    <option value="02:00">02:00 hrs</option>
+                                    <option value="03:00">03:00 hrs</option>
+                                    <option value="04:00">04:00 hrs</option>
+                                    <option value="05:00">05:00 hrs</option>
+                                    <option value="06:00">06:00 hrs</option>
+                                    <option value="07:00">07:00 hrs</option>
+                                    <option value="08:00">08:00 hrs</option>
+                                    <option value="09:00">09:00 hrs</option>
+                                    <option value="10:00">10:00 hrs</option>
+                                    <option value="11:00">11:00 hrs</option>
+                                    <option value="12:00">12:00 hrs</option>
+                                    <option value="24:00">Todo el dia</option>
+                                </select>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <h5 for="alterEgo">{{ 'prospects.FormularioPregunta9' | translate }}</h5>
+                            <ng-select *ngIf="!BanderaIdioma" [options]="listidiomas" name="idiomas" [multiple]="true" formControlName="idiomas" required>
+                            </ng-select>
+                            <ng-select *ngIf="BanderaIdioma" [options]="listidiomasEspaniol" name="idiomas" [multiple]="true" formControlName="idiomas" required>
+                            </ng-select>
+
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <h4>{{ 'createTour.Paso10Title' | translate }}</h4>
+                            <br>
+                            <br>
+                            <div class="flex">
+                                <span class="input-group-addon">$</span>
+                                <input class="form-control" type="text" formControlName="currencyfield" required placeholder="1,000.00" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <h4>{{ 'createTour.Paso10Texto' | translate }}</h4>
+                            <br>
+                            <div class="flex">
+                                <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="moneda" required>
+                                            <option value="USD">$ USD</option>
+                                            <option value="EUR">€ EUR</option>
+                                            <option value="MXN">$ MX</option>
+                                        </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="section-21">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="assets/img/becomeguide/foto.png" alt="" width="300" height="300" class="centrarimagen">
+                            </div>
+                            <div class="col-sm-8" style="padding: 64px;">
+                                <div class="textoblanco">
+                                    <h2 style="color:#fff;">4. {{ 'createTour.Iniciostep4' | translate }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container margin_60_35">
+                <div class="form-group">
+                    <h6>{{ 'createTour.Paso11Texto' | translate }}</h6>
+                    <br>
+                    <div class="flash-warning">
+                        <div class="flash-text">
+                            <p><b>{{ 'createTour.RecomendacionSubidaImagen' | translate }}</b></p>
+                            <ul>
+                                <li>{{ 'createTour.RecomendacionSubidaImagen1' | translate }}</li>
+                                <li>{{ 'createTour.RecomendacionSubidaImagen2' | translate }}</li>
+                                <li>{{ 'createTour.RecomendacionSubidaImagen3' | translate }}</li>
+                            </ul>
+                            <p><b>{{ 'createTour.RecomendacionSubidaImagen4' | translate }}</b></p>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+                <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+                    <ngx-dropzone-label>Haz click o arrastra tus imagenes aqui, tantas como quieras.</ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                        <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                </div>
+                <br><br>
+                <button class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" type="submit">{{ 'prospects.Send' | translate }}</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<br><br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="title-lv1 border-bottom margin-bottom">
+                {{ 'header.MisTours' | translate }} </h1>
+        </div>
+    </div>
+</div>
+<div *ngIf="cargando">
+    <!-- <app-spineer></app-spineer> -->
+</div>
+<div class="container">
+    <div class="row" *ngIf="!cargando">
+        <div class="col-sm-12" *ngIf="HayTours">
+            <div class="list_general" *ngFor="let tour of tours">
+                <ul>
+                    <li>
+                        <figure><img [src]='tour.get_photos[0].photo | imagen:"tours"' alt=""></figure>
+                        <h3>{{tour.name}} <i class="pending" *ngIf="tour.verificado == 'No'">{{ 'alertas.Pending' | translate }}</i> <i class="approved" *ngIf="tour.verificado == 'Si'">{{ 'alertas.Approved' | translate }}</i></h3>
+                        <div>
+                            <p [innerHTML]="'<b>'+tour.schedulle.substr(0,300)+' ...'+'</b>'"></p>
+                        </div>
+                        <span *ngIf="tour.verificado == 'Si'"><a [routerLink]="['/tour',tour.slug]" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> {{ 'alertas.Viewtour' | translate }}</a></span>
+                        <span><a [routerLink]="['/users/edittour',tour.slug]" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> {{ 'alertas.Edittour' | translate }}</a></span>
+                        <ul class="buttons">
+                            <li><a (click)="borrarTour(tour)" class="btn_1 gray delete wishlist_close"><i class="fa fa-fw fa-times-circle-o"></i> {{ 'alertas.Cancel' | translate }}</a></li>
+                        </ul>
+                        <br><br>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-bottom: 10%"></div>
+            <div class="col-sm-6 mx-auto">
+                <button [routerLink]="['/users/createtours']" routerLinkActive="router-link-active" class="btn btn-primary btn-block add_top_30">{{ 'alertas.CreaUnTour' | translate }}</button>
+            </div>
+            <div style="margin-bottom: 15%"></div>
+
+        </div>
+        <div class="col-sm-12" *ngIf="NoHayTours">
+            <div class="alert alert-warning" role="alert">
+                <h4 class="alert-heading">{{ 'alertas.AdminToursTitle' | translate }}</h4>
+                <br>
+                <h6>{{ 'alertas.AdminToursMensaje' | translate }}</h6>
+                <hr>
+            </div>
+            <div style="margin-bottom: 30%"></div>
+            <div class="col-sm-6 mx-auto">
+                <button [routerLink]="['/users/createtours']" routerLinkActive="router-link-active" class="btn btn-primary btn-block add_top_30">{{ 'alertas.CreaUnTour' | translate }}</button>
+            </div>
+            <div style="margin-bottom: 15%"></div>
+
+        </div>
+
+    </div>
+</div>

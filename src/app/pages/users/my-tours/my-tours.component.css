@@ -1,0 +1,158 @@
+.unread,
+.read,
+.pending,
+.cancel,
+.approved {
+    background-color: #fd7e14;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-size: 0.75rem;
+    color: #fff;
+    font-style: normal;
+    padding: 3px 12px 2px 12px;
+    margin-left: 3px;
+    position: relative;
+    top: -3px;
+    line-height: 1;
+}
+
+.read,
+.approved {
+    background-color: #28a745;
+}
+
+ul.buttons {
+    list-style: none;
+    margin: 0 0 30px 0;
+    padding: 0;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+@media (max-width: 767px) {
+    ul.buttons {
+        /* For less than 767px */
+        position: static;
+    }
+}
+
+ul.buttons li {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+ul.booking_list {
+    list-style: none;
+    margin: 15px 0 25px 0;
+    padding: 0;
+}
+
+ul.booking_list li {
+    margin-bottom: 5px;
+}
+
+ul.booking_list li strong {
+    width: 150px;
+    display: inline-block;
+}
+
+@media (max-width: 767px) {
+    ul.booking_list li strong {
+        /* For less than 767px */
+        display: block;
+        width: auto;
+    }
+}
+
+
+/*-------- 1.2 Buttons --------*/
+
+
+/*General links color*/
+
+a {
+    color: #0054a6;
+    text-decoration: none;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    outline: none;
+}
+
+a:hover,
+a:focus {
+    color: #333;
+    text-decoration: none;
+    outline: none;
+}
+
+a.btn_1,
+.btn_1 {
+    border: none;
+    color: #fff;
+    background: #fc5b62;
+    cursor: pointer;
+    padding: 10px 15px;
+    display: inline-block;
+    outline: none;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    border-radius: 25px;
+    line-height: 1;
+    font-weight: 500;
+}
+
+a.btn_1.gray,
+.btn_1.gray {
+    background: #e9ecef;
+    color: #868e96;
+}
+
+a.btn_1.gray.approve:hover,
+.btn_1.gray.approve:hover {
+    background: #28a745;
+    color: #fff;
+}
+
+a.btn_1.gray.delete:hover,
+.btn_1.gray.delete:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+a.btn_1.medium,
+.btn_1.medium {
+    padding: 12px 45px;
+    font-size: 16px;
+    font-size: 1rem;
+}
+
+a.btn_1:hover,
+.btn_1:hover {
+    background: #0054a6;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #fc5b62;
+    border-color: #fc5b62;
+}
+
+.btn-primary:hover {
+    background-color: #0054a6;
+    border-color: #0054a6;
+}

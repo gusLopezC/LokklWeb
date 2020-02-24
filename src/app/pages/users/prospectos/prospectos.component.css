@@ -1,0 +1,102 @@
+.page-section-prospectos {
+    background: url('src/assets/img/prospects/fondoprospectos.jpg') center fixed no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 150px 0;
+    position: relative;
+}
+
+.section-title-mega {
+    margin: 0 0 30px;
+    font-size: 3em;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+}
+
+.page-section-between-block {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-top: -10px;
+}
+
+.page-section .section-title {
+    text-align: center;
+    color: #343a40;
+    margin: 15px 0 30px;
+}
+
+.section-3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 70px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.section-3 .heading-2 {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+    position: relative;
+    top: -43px;
+    z-index: 2;
+    padding: 8px 13px;
+    background-image: linear-gradient(180deg, #004ea1, #004ea1);
+    font-family: Exo, sans-serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+.page-section-mensaje {
+    background: url('src/assets/img/prospects/fondoprospectos2.jpg') center fixed no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
+
+.Texto_mensaje {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cuadro_mensaje {
+    margin: 0 auto;
+    padding: 80px 90px;
+    background-color: rgba(1, 59, 140, 0.4);
+}
+
+.wrap {
+    width: 190%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.iconnotification {
+    width: 10%;
+    float: left;
+    margin-right: 38px;
+    margin-bottom: 5%;
+}

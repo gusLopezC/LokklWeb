@@ -1,0 +1,68 @@
+.formulario .radio label,
+.formulario .checkbox label {
+    display: inline-block;
+    cursor: pointer;
+    color: #0072BC;
+    position: relative;
+    padding: 5px 15px 5px 51px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.formulario .radio label:hover,
+.formulario .checkbox label:hover {
+    background: rgba(255, 65, 54, 0.1);
+}
+
+.formulario .radio label:before,
+.formulario .checkbox label:before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 15px;
+    border-radius: 50%;
+    background: none;
+    border: 3px solid #0072BC;
+}
+
+.formulario input[type="radio"] {
+    display: none;
+}
+
+.formulario input[type="radio"]:checked+label:before {
+    display: none;
+}
+
+.formulario input[type="radio"]:checked+label {
+    padding: 5px 15px;
+    background: #0072BC;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.formulario .checkbox label:before {
+    border-radius: 3px;
+}
+
+.formulario .checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.formulario .checkbox input[type="checkbox"]:checked+label:before {
+    display: none;
+}
+
+.formulario .checkbox input[type="checkbox"]:checked+label {
+    background: #0072BC;
+    color: #fff;
+    padding: 5px 15px;
+}
+
+agm-map {
+    height: 300px;
+}

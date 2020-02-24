@@ -1,0 +1,70 @@
+<div class="bg_color_1">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="box_general padding_bottom">
+                    <div class="row">
+                        <div class="col-sm-12" *ngIf="MostrarModulo1">
+                            <div class="card-body">
+                                <img src="assets/img/becomeguide/tiki_icono_world.png" alt="" class="iconnotification">
+                                <br>
+                                <h6>{{ 'profile.Joinournetworkoftravelers' | translate }}</h6>
+                                <p>{{ 'profile.JoinournetworkoftravelersText' | translate }}</p>
+                                <button type="button" routerLink="/users/prospects" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" data-automation="account-welcome-page-create-product-action"><span>{{ 'profile.Create' | translate }}</span></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12" *ngIf="MostrarModulo2">
+                            <div class="card-body">
+                                <img src="assets/img/becomeguide/passport.png" alt="" class="iconnotification">
+                                <br>
+                                <div>
+                                    <h6>{{ 'profile.Verifyyouridentity' | translate }}</h6>
+                                    <p>{{ 'profile.VerifyyouridentityText' | translate }}</p>
+                                </div>
+                                <button type="button" routerLink="/users/prospects/validateIdentity" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" data-automation="account-welcome-page-create-product-action"><span>{{ 'profile.Create' | translate }}</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" *ngIf="MostrarModulo3">
+                            <div class="card-body ">
+                                <img src="assets/img/becomeguide/Mapa.png" alt="" class="iconnotification">
+                                <h6>{{ 'profile.Createanexperience' | translate }}</h6>
+                                <p>{{ 'profile.CreateanexperienceText' | translate }}</p>
+                                <button type="button" routerLink="/users/createtours" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" data-automation="account-welcome-page-create-product-action"><span>{{ 'profile.Create' | translate }}</span></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="card-body ">
+                                <img src="assets/img/becomeguide/tiki_icono_money.png" alt="" class="iconnotification">
+                                <h6>{{ 'profile.Tellushowtopayyou' | translate }}</h6>
+                                <p>{{ 'profile.TellushowtopayyouText' | translate }}<br><br></p>
+                                <button type="button" routerLink="/users/DatosGuidePayments" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" data-automation="account-welcome-page-create-product-action"><span>{{ 'profile.Create' | translate }}</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="profilefondoazul">
+                    <img class="imagenciruclo" [src]="usuario?.img | imagen">
+                </div>
+                <div class="box_general padding_bottom" style=" text-align: center; ">
+                    <br>
+                    <h5>{{usuario?.name}}</h5>
+                    <hr>
+                    <h6><a [routerLink]="['/profile',usuario?.id]" routerLinkActive="router-link-active">Ver perfil</a></h6>
+                    <hr>
+                    <h6><a [routerLink]="['/users/profile']" routerLinkActive="router-link-active">Editar perfil</a></h6>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

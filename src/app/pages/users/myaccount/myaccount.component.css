@@ -1,0 +1,36 @@
+.iconnotification {
+    width: 20%;
+    float: left;
+    margin-right: 38px;
+    margin-bottom: 2%;
+}
+
+@media (max-width: 767px) {
+    .iconnotification {
+        width: 30%;
+        float: left;
+        margin-right: 38px;
+    }
+}
+
+.profilefondoazul {
+    background: #0062cc;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.imagenciruclo {
+    height: 72px;
+    width: 72px;
+    position: relative;
+    margin: 23px auto 0 auto;
+    border: 3px solid white;
+    border-radius: 50%;
+}

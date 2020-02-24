@@ -1,0 +1,106 @@
+<br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="title-lv1 border-bottom margin-bottom">
+                {{ 'Cancelations.Nopuedescancelar' | translate }} </h1>
+        </div>
+    </div>
+</div>
+<div *ngIf="cargando">
+    <!-- <app-spineer></app-spineer> -->
+</div>
+<div *ngIf="!cargando">
+    <div class="container" *ngIf="puedeCancelar">
+        <div class="row">
+            <br>
+            <h3>¿{{ 'Cancelations.SeguroquequieresCancelar' | translate }} {{ reserva.NameTour}}? </h3>
+
+            <div class="col-sm-8">
+
+                <div class="formulario">
+                    <div class="radio">
+                        <div>
+                            <input id="No" type="radio" class="custom-control-input" value="No" name="MostrarOpciones">
+                            <label for="No"
+                                (click)="mostrarOpciones(false)">{{ 'Cancelations.guiaOpcionNo' | translate }} </label>
+                        </div>
+                        <p></p>
+                        <div>
+                            <input id="Yes" type="radio" class="custom-control-input" value="Yes"
+                                name="MostrarOpciones">
+                            <label for="Yes"
+                                (click)="mostrarOpciones(true)">{{ 'Cancelations.guiaOpcionSi' | translate }}</label>
+                        </div>
+                    </div>
+                </div>
+                <form ngNativeValidate #f='ngForm' (ngSubmit)="CancelarReservacionGuia(f)">
+                    <br><br>
+                    <div class="formulario" style="margin-left: 35px;">
+                        <div class="radio" *ngIf="mostrarListaOpciones">
+                            <div>
+                                <input id="CambioPlanes" type="radio" class="custom-control-input"
+                                    value="No puedo ofrecer la experiencia" name="MotivoCancelacion" ngModel>
+                                <label for="CambioPlanes">{{ 'Cancelations.guiaOpcion2' | translate }}</label>
+                                <p>{{ 'Cancelations.guiaOpcion2texto' | translate }}</p>
+                            </div>
+
+                            <div>
+                                <input id="Cambiodestino" type="radio" class="custom-control-input"
+                                    value="Cambiodestino" name="MotivoCancelacion" ngModel>
+                                <label for="Cambiodestino">{{ 'Cancelations.guiaOpcion3' | translate }}</label>
+                                <p>{{ 'Cancelations.guiaOpcion3texto' | translate }}</p>
+                            </div>
+                            <div>
+                                <input id="ClimaNoApropiado" type="radio" class="custom-control-input"
+                                    value="ClimaNoApropiado" name="MotivoCancelacion" ngModel>
+                                <label for="ClimaNoApropiado">{{ 'Cancelations.guiaOpcion4' | translate }}</label>
+                                <p>{{ 'Cancelations.guiaOpcion4texto' | translate }}</p>
+                            </div>
+
+                            <div>
+                                <input id="Otro" type="radio" class="custom-control-input" value="Otro"
+                                    name="MotivoCancelacion" ngModel>
+                                <label for="Otro">{{ 'Cancelations.guiaOpcion5' | translate }}</label>
+                                <br>
+                                <textarea name="MotivoCancelacionTextArea" id="MotivoCancelacionTextArea"
+                                    style="width: 100%;" ngModel></textarea>
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <button *ngIf="mostrarListaOpciones "
+                            class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointe"
+                            type="submit ">Send</button>
+                    </div>
+                </form>
+                <div *ngIf="!mostrarListaOpciones ">
+                    <br><br><br>
+                    <button class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer "
+                        [routerLink]="[ '/users/myreservations'] " routerLinkActive="router-link-active ">Salir</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container " *ngIf="!puedeCancelar ">
+        <div class="row alert alert-info" role="alert">
+            <div class="col-sm-6">
+                <img src="assets\img\icons\tour\error.png" class="imagencenter">
+            </div>
+            <div class="col-sm-6" style="margin: auto;">
+                <h1>{{ 'Cancelations.Nopuedescancelar' | translate }}</h1>
+                <div>
+                    <p>{{ 'Cancelations.NopuedescancelarMensaje' | translate }}</p>
+                    <br>
+                    <p>{{ 'Cancelations.NopuedescancelarsubMensaje' | translate }} <strong>#{{pedido}} </strong>
+                        {{ 'Cancelations.NopuedescancelarsubMensaje2' | translate }} <a href="mailto:iam@lokkl.com"><i
+                                class="ti-email"></i> iam@lokkl.com</a> .</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="margin_80 "></div>
+</div>

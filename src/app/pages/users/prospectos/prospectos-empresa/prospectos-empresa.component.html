@@ -1,0 +1,106 @@
+<div class="container margin_60_35">
+    <br>
+    <br>
+    <h3>{{ 'prospects.Formulario1Empresa' | translate }}</h3>
+    <form [formGroup]="forma">
+        <br>
+        <div class="form-group">
+            <h5 for="alterEgo ">{{ 'prospects.FormularioPregunta1Empresa' | translate }}</h5>
+            <p>{{ 'prospects.FormularioPregunta1Empresasub' | translate }}</p>
+            <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta2Empresa' | translate }}</h5>
+                <input name="nombreempresa" class="form-control" type="text" formControlName="nombreempresa" required>
+                <p class="text-danger" *ngIf="forma.get('nombreempresa').hasError('required') && forma.get('nombreempresa').touched ">
+                    <b>Campo requerido</b>
+                </p>
+
+            </div>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta3Empresa' | translate }}</h5>
+                <input name="nombreempresaLegal" class="form-control" type="text" formControlName="nombreempresaLegal" required>
+                <p class="text-danger" *ngIf="forma.get('nombreempresaLegal').hasError('required') && forma.get('nombreempresaLegal').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta4Empresa' | translate }}</h5>
+                <input name="sitioweb" class="form-control" type="text" formControlName="sitioweb">
+
+            </div>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta5Empresa' | translate }}</h5>
+                <input name="telefono" class="form-control" type="text" formControlName="telefono" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+                <p class="text-danger" *ngIf="forma.get('telefono').hasError('required') && forma.get('telefono').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta6Empresa' | translate }}</h5>
+                <input name="correoempresacontacto" class="form-control" type="email" formControlName="correoempresacontacto" required>
+                <p class="text-danger" *ngIf="forma.get('correoempresacontacto').hasError('required') && forma.get('correoempresacontacto').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <br>
+            <h3></h3>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta7Empresa' | translate }}</h5>
+                <input name="ciudad" class="form-control" type="text" formControlName="ciudad" required>
+                <p class="text-danger" *ngIf="forma.get('ciudad').hasError('required') && forma.get('ciudad').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta8Empresa' | translate }}</h5>
+                <input name="CP" class="form-control" type="text" minlength="3" maxlength="8" formControlName="CP" required>
+                <p class="text-danger" *ngIf="forma.get('CP').hasError('required') && forma.get('CP').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta9Empresa' | translate }}</h5>
+                <input name="dirección" class="form-control" type="text" formControlName="dirección" required>
+                <p class="text-danger" *ngIf="forma.get('dirección').hasError('required') && forma.get('dirección').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <br>
+            <h3>{{ 'prospects.Formulario3Empresa' | translate }}</h3>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta10Empresa' | translate }}</h5>
+                <input name="nombreContacto" class="form-control" type="text" formControlName="nombreContacto" required>
+                <p class="text-danger" *ngIf="forma.get('nombreContacto').hasError('required') && forma.get('nombreContacto').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta11Empresa' | translate }}</h5>
+                <input name="puestoTrabajo" class="form-control" type="text" formControlName="puestoTrabajo" required>
+                <p class="text-danger" *ngIf="forma.get('puestoTrabajo').hasError('required') && forma.get('puestoTrabajo').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <br>
+            <div class="form-group">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta12Empresa' | translate }}</h5>
+                <input name="telefonocontacto" class="form-control" type="text" formControlName="telefonocontacto" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+                <p class="text-danger" *ngIf="forma.get('telefonocontacto').hasError('required') && forma.get('telefonocontacto').touched ">
+                    <b>Campo requerido</b>
+                </p>
+            </div>
+            <br>
+            <button class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" type="submit" (click)="mandarDatosProspectosEmpresa()" [disabled]="!forma.valid">{{ 'prospects.Send' | translate }}</button>
+        </div>
+        <br>
+    </form>
+</div>

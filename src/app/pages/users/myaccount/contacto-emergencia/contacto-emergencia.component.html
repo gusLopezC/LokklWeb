@@ -1,0 +1,52 @@
+<div class="box_general padding_bottom" *ngIf="cargando">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Agregar contacto de emergencia</h2>
+            <p>Disponer de un contacto de emergencia nos da otra opcion para ayduarte si alguna vez te encuentras en una
+                situacion de emergencia.</p>
+            <h1> </h1>
+        </div>
+        <div class="col-sm-4">
+            <div>
+                <img src="assets/img/tikislokkl/Policia.png" alt="" class="tikipolicia">
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="card-body ">
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="formularioContactoEmergencia( f.value)">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control"
+                                    [(ngModel)]="datospersonales.NameContactoEmergencia" name="NameContactoEmergencia"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Telefono</label>
+                                <input [(ngModel)]="datospersonales.NumContactoEmergencia" name="NumContactoEmergencia"
+                                    type="text" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input [(ngModel)]="datospersonales.EmailContactoEmergencia"
+                                    name="EmailContactoEmergencia" type="email" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row-->
+                    <button type="submit" class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer">
+                        <i class="fa fa-save"></i>{{ 'profile.Send' | translate }}</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

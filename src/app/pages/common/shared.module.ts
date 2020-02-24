@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 
 import { HeaderComponent } from './header/header.component';
-import { SpineerComponent } from './spineer/spineer.component';
+// import { SpineerComponent } from './spineer/spineer.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 
@@ -46,14 +46,14 @@ export function provideConfig() {
     declarations: [
         NopagefoundComponent,
         HeaderComponent,
-        SpineerComponent,
+        // SpineerComponent,
         FooterComponent,
 
     ],
     exports: [
         NopagefoundComponent,
         HeaderComponent,
-        SpineerComponent,
+        // SpineerComponent,
         FooterComponent,
 
     ],

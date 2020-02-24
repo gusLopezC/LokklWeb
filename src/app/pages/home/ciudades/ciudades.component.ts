@@ -22,6 +22,7 @@ export class CiudadesComponent {
     this.dataList = [];
     this._toursCiudadService.obtenerTourScrollInfinite(this.numberPagination)
       .subscribe(resp => {
+        console.log(resp);
         this.total = resp.Tour.total;
         // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < resp.Tour.data.length; i++) {

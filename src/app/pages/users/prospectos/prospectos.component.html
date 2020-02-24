@@ -1,0 +1,76 @@
+<div class="bg_color_1">
+    <br>
+    <br>
+    <br>
+    <section class="page-section-prospectos">
+        <div class="container page-section-header">
+            <h1 class="section-title-mega">{{ 'prospects.JointheLOKKLrevolution' | translate }}</h1>
+        </div>
+    </section>
+    <div class="section-3">
+        <h3 class="heading-2 wow slideIn">{{ 'prospects.BeLokkl' | translate }}</h3>
+    </div>
+    <section class="page-section page-section-colgate">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="section-title ">{{ 'prospects.WhybecomeaLOKKL?' | translate }}</h4>
+
+                    <h6 style=" text-align: justify; ">{{ 'prospects.WhybecomeaLOKKLMensaje' | translate }}</h6>
+
+                    <p>{{ 'prospects.WhybecomeaLOKKLSubmensaje' | translate }}</p>
+                    <ul class="list-bullet list-path">
+                        <li><strong>{{ 'prospects.Beneficio1' | translate }}</strong> {{ 'prospects.BeneficioRespuesta1' | translate }}</li>
+                        <li><strong>{{ 'prospects.Beneficio2' | translate }}</strong> {{ 'prospects.BeneficioRespuesta2' | translate }}</li>
+                        <li><strong>{{ 'prospects.Beneficio3' | translate }}</strong> {{ 'prospects.BeneficioRespuesta3' | translate }}</li>
+                        <li><strong>{{ 'prospects.Beneficio4' | translate }}</strong> {{ 'prospects.BeneficioRespuesta4' | translate }}</li>
+                        <li><strong>{{ 'prospects.Beneficio5' | translate }}</strong> {{ 'prospects.BeneficioRespuesta5' | translate }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="page-section-mensaje">
+        <div class="cuadro_mensaje " style="background-color: rgba(1, 59, 140 , 0.4) ">
+            <div class="Texto_mensaje ">{{ 'prospects.Letsgo' | translate }}</div>
+            <div class="Texto_mensaje "><strong>{{ 'prospects.Complateformulario' | translate }}</strong></div>
+        </div>
+    </div>
+
+
+    <div class="container" *ngIf="EscogerTipoFormulario">
+        <div class="container margin_60_35"></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>¿Cómo describirías tu experiencia?</h3>
+                <p>Usaremos esta información para ayudarte a crear su perfil y ofrecer herramientas que se adecuen a tus necesidades.</p>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8" (click)="mostrarTipoFormulario(1)">
+                <div class="box_general padding_bottomcard" style="cursor: pointer;">
+                    <div class="card-body">
+                        <img src="assets/img/icons/prospectos/teamwork.svg" class="iconnotification" alt="">
+                        <h6>Eres persona moral(empresa)</h6>
+                        <p>Tienes dos o más guias que son parte de tu empresa y ofreces diferentes servicios.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8" (click)="mostrarTipoFormulario(2)">
+                <div class="box_general padding_bottom card" style="cursor: pointer;">
+                    <div class="card-body">
+                        <img src="assets/img/icons/prospectos/solo.svg" class="iconnotification" alt="">
+                        <h6>Soy persona fisíca</h6>
+                        <p>Siempre ofrezco personalmente las experiencias (p. ej., soy el guia de la experiencia).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+    </div>
+
+
+</div>

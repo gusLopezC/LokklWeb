@@ -1,0 +1,104 @@
+.page-section-createtour {
+    background: url(https://images.unsplash.com/photo-1537431701805-c1bb45cd2f92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1064&q=80) center fixed no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 120px 0;
+    position: relative;
+}
+
+.basenegro {
+    background-image: -webkit-linear-gradient(left, rgba(1, 78, 162, 0), rgba(1, 78, 162, 1) 35%, rgba(1, 78, 162, 0));
+    background-image: -moz-linear-gradient(left, rgba(1, 78, 162, 0), rgba(1, 78, 162, 1) 35%, rgba(1, 78, 162, 0));
+    background-image: -ms-linear-gradient(left, rgba(1, 78, 162, 0), rgba(1, 78, 162, 1) 35%, rgba(1, 78, 162, 0));
+    background-image: -o-linear-gradient(left, rgba(1, 78, 162, 0), rgba(1, 78, 162, 1) 35%, rgba(1, 78, 162, 0));
+    background-image: linear-gradient(to right, rgba(1, 78, 162, 0), rgba(1, 78, 162, 1) 35%, rgba(1, 78, 162, 0));
+}
+
+.section-title-mega {
+    margin: 0 0 30px;
+    font-size: 3em;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+}
+
+.section-title-item {
+    font-size: 30px;
+    margin: 40px 0 0px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+}
+
+.section-title-item span {
+    font-size: 40px;
+    color: #F37E08;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+}
+
+.section-21 {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #014ea2;
+}
+
+agm-map {
+    height: 300px;
+}
+
+.custom-dropzone {
+    height: 250px;
+    border-radius: 15px;
+    font-size: 20px;
+    border-style: solid;
+}
+
+.custom-dropzone.ngx-dz-hovered {
+    border: 5px solid rgb(235, 79, 79);
+}
+
+.flex {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex .currency {
+    font-size: 19px;
+    padding: 0px 10px 0 20px;
+    color: #999;
+    border: 1px solid #ccc;
+    border-right: 0;
+    line-height: 2.5;
+    border-radius: 7px 0 0 7px;
+    background: white;
+}
+
+.input-group-addon {
+    padding: .5rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #495057;
+    text-align: center;
+    background-color: #e9ecef;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+}

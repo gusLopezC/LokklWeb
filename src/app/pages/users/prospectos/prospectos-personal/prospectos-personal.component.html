@@ -1,0 +1,107 @@
+<div class="container margin_60_35">
+    <br>
+    <br>
+    <form ngNativeValidate #f='ngForm' (ngSubmit)="mandarDatosProspectos(f)">
+        <br>
+        <div class="form-group">
+            <h4>{{ 'prospects.FormularioTitle' | translate }}</h4>
+            <h6>{{ 'prospects.FormulariosubTitle' | translate }}</h6>
+        </div>
+        <br>
+        <div class="form-group">
+            <h5 for="name">{{ 'prospects.FormularioPregunta1' | translate }}</h5>
+            <input name="name" class="form-control" type="text" placeholder="Name" required [(ngModel)]="usuario.name">
+        </div>
+        <br>
+        <div class="form-group">
+            <h5 for="alterEgo">{{ 'prospects.FormularioPregunta2' | translate }}</h5>
+            <input name="email" class="form-control" type="mail" required placeholder="Email" [(ngModel)]="usuario.email">
+        </div>
+        <br>
+        <div class="form-group">
+            <h5 [innerHTML]="'prospects.FormularioPregunta3' | translate "></h5>
+            <input name="telefonoContacto" class="form-control" type="text" maxlength="13" minlength="8" required placeholder="Telephone" [(ngModel)]="prospecto.telefonoContacto" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        </div>
+        <br>
+        <div class=" form-group ">
+            <h5 for="alterEgo ">{{ 'prospects.FormularioPregunta4' | translate }}</h5>
+            <p>{{ 'prospects.FormularioPregunta4sub' | translate }}</p>
+            <input type="text " class="form-control " (keydown.enter)="$event.preventDefault() " placeholder="Search Location " autocorrect="off " autocapitalize="off " spellcheck="off " type="text " #search>
+            <br>
+            <agm-map [latitude]="latitude " [longitude]="longitude " [scrollwheel]="false " [zoom]="zoom ">
+                <agm-marker [latitude]="latitude " [longitude]="longitude "></agm-marker>
+            </agm-map>
+            <br>
+        </div>
+        <br>
+        <div class="form-group ">
+            <h5 for="alterEgo ">{{ 'prospects.FormularioPregunta5' | translate }} </h5>
+            <input name="edad" class="form-control" type="text" min="18" required placeholder="Age" [(ngModel)]="prospecto.edad" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        </div>
+        <br>
+        <div class="formulario">
+            <div class="radio">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta6' | translate }} </h5><br>
+                <div>
+                    <input id="Yes" type="radio" class="custom-control-input" value="Yes" name="eres_guia" ngModel required>
+                    <label for="Yes">{{ 'prospects.Yes' | translate }}</label>
+                </div>
+
+                <div>
+                    <input id="No" type="radio" class="custom-control-input" value="No" name="eres_guia" ngModel required>
+                    <label for="No">{{ 'prospects.No' | translate }}</label>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="formulario">
+            <div class="radio">
+                <h5 for="alterEgo">{{ 'prospects.FormularioPregunta7' | translate }}</h5>
+                <div>
+                    <input id="algo" type="radio" class="custom-control-input" value="Yes" name="trabajas_como_guia" ngModel required>
+                    <label class="custom-control-label" for="algo">{{ 'prospects.Yes' | translate }}</label>
+                </div>
+
+                <div>
+                    <input id="Mas" type="radio" class="custom-control-input" value="No" name="trabajas_como_guia" ngModel required>
+                    <label class="custom-control-label" for="Mas">{{ 'prospects.No' | translate }}</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+
+            <div class="formulario">
+                <div class="radio">
+                    <h5 for="alterEgo">{{ 'prospects.FormularioPregunta10' | translate }} </h5>
+                    <div>
+                        <input id="Certificacionidiomas_yes" type="radio" class="custom-control-input" value="Yes" name="certificacion_idiomas" ngModel required>
+                        <label class="custom-control-label" for="Certificacionidiomas_yes">{{ 'prospects.Yes' | translate }}</label>
+                    </div>
+
+                    <div>
+                        <input id="Certificacionidiomas_no" type="radio" class="custom-control-input" value="No" name="certificacion_idiomas" ngModel required>
+                        <label class="custom-control-label" for="Certificacionidiomas_no">{{ 'prospects.No' | translate }}</label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <h5 for="alterEgo">{{ 'prospects.FormularioPregunta11' | translate }}</h5>
+            <select class="form-control" name="comoNosConociste" required [(ngModel)]="prospecto.comoNosConociste" required> 
+                        <option value="Buscando en Google tout + nombre de mi ciudad">{{ 'prospects.Comonosconociste1' | translate }}</option>
+                        <option value="Para un grupo de guías turísticos en Facebook">{{ 'prospects.Comonosconociste2' | translate }}</option>
+                        <option value="Reservé un tour contigo en un viaje.">{{ 'prospects.Comonosconociste3' | translate }}</option>
+                        <option value="Nuestra página web">{{ 'prospects.Comonosconociste4' | translate }}</option>
+                        <option value="Uno de nuestros socios LOKKL">{{ 'prospects.Comonosconociste5' | translate }}</option>
+                        <option value="Otro">{{ 'prospects.Comonosconociste6' | translate }}</option>
+                    </select>
+        </div>
+        <button class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" type="submit">{{ 'prospects.Send' | translate }}</button>
+    </form>
+
+</div>

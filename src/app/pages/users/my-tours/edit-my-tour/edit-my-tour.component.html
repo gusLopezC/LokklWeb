@@ -1,0 +1,226 @@
+<div>
+</div>
+<div class="bg_color_1">
+    <br>
+    <br>
+    <br>
+    <form ngNativeValidate #f='ngForm' (submit)="mandarDatosTourActualizado(f)">
+        <div class="section-21">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="assets/img/becomeguide/Mapa.png" alt="" width="300" height="300" class="centrarimagen">
+                        </div>
+                        <div class="col-sm-8" style="padding: 64px;">
+                            <div class="textoblanco">
+                                <h2 style="color:#fff;">1. {{ 'createTour.Iniciostep1' | translate }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container  margin_60_35">
+            <div class="form-group">
+                <h4>{{ 'createTour.Paso1Tile' | translate }}</h4>
+                <p>{{ 'createTour.Paso1Texto' | translate }}
+                </p>
+                <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search [(ngModel)]="tour.cuidad" name="cuidad" required>
+
+                <br>
+                <div class="form-group">
+                    <h4>{{ 'createTour.Paso2Title' | translate }}</h4>
+                    <p>{{ 'createTour.Paso2Texto' | translate }}</p>
+                </div>
+            </div>
+        </div>
+
+        <agm-map [latitude]="mapaGoogleLat" [longitude]="mapaGoogleLon" [scrollwheel]="false" [zoom]="15">
+            <agm-marker [latitude]="mapaGoogleLat" [longitude]="mapaGoogleLon" [markerDraggable]="true" (dragEnd)="markerMoved($event)"> </agm-marker>
+        </agm-map>
+        <br>
+        <div class="container">
+            <div class="form-group">
+                <h4>{{ 'createTour.Paso3Title' | translate }}</h4>
+                <p>{{ 'createTour.Paso3Texto' | translate }}
+                </p>
+                <input class="form-control " type="text " placeholder="Nombre" [(ngModel)]="tour.puntoInicio" name="puntoInicio" required>
+
+            </div>
+            <br>
+        </div>
+        <div class="section-21">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="assets/img/becomeguide/tiki_icono_fun.png" alt="" width="300" height="300" class="centrarimagen">
+                        </div>
+                        <div class="col-sm-8" style="padding: 64px;">
+                            <div class="textoblanco">
+                                <h2 style="color:#fff;">2. {{ 'createTour.Iniciostep2' | translate }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container margin_60_35">
+            <div class="form-group">
+                <h4>{{ 'createTour.Paso4Title' | translate }}</h4>
+                <p>{{ 'createTour.Paso4Texto' | translate }} </p>
+                <input type="text" class="form-control" [(ngModel)]="tour.name" name="name" required placeholder="E.g 'Descubre chichen itza at night'">
+            </div>
+            <br>
+            <div class="form-group">
+                <h4>{{ 'createTour.Paso5Title' | translate }}</h4>
+                <ckeditor [editor]="Editor" [(ngModel)]="tour.schedulle" name="schedulle" rows="10" required data=""></ckeditor>
+            </div>
+            <br>
+        </div>
+        <div class="section-21 margin_60_35">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="assets/img/becomeguide/Mapa.png" alt="" width="300" height="300" class="centrarimagen">
+                        </div>
+                        <div class="col-sm-8" style="padding: 64px;">
+                            <div class="textoblanco">
+                                <h2 style="color:#fff;">3. {{ 'createTour.Iniciostep3' | translate }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <h4>{{ 'createTour.Paso8Title' | translate }}</h4>
+                        <br>
+                        <select class="form-control ng-pristine ng-invalid ng-touched" [(ngModel)]="tour.categories" name="categories" required>
+                                    <option value="Cultura">{{ 'createTour.CategoriaCultura' | translate }}</option>
+                                    <option value="Histórico">{{ 'createTour.CategoriaHistórico' | translate }}</option>
+                                    <option value="Ecoturistico">{{ 'createTour.CategoriaEcoturistico' | translate }}</option>
+                                    <option value="Aventura">{{ 'createTour.CategoriaAventura' | translate }}</option>
+                                    <option value="Gastronomico">{{ 'createTour.CategoriaGastronomico' | translate }}</option>
+                                    <option value="Deportivo">{{ 'createTour.CategoriaDeportivo' | translate }}</option>
+        
+                                </select>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <h4>{{ 'createTour.Paso9Title' | translate }}</h4>
+                        <br>
+                        <div style="width: 50%;">
+                            <select class="form-control ng-pristine ng-invalid ng-touched" [(ngModel)]="tour.duration" name="duration" required>
+                                        <option value="01:00">01:00 hrs</option>
+                                        <option value="02:00">02:00 hrs</option>
+                                        <option value="03:00">03:00 hrs</option>
+                                        <option value="04:00">04:00 hrs</option>
+                                        <option value="05:00">05:00 hrs</option>
+                                        <option value="06:00">06:00 hrs</option>
+                                        <option value="07:00">07:00 hrs</option>
+                                        <option value="08:00">08:00 hrs</option>
+                                        <option value="09:00">09:00 hrs</option>
+                                        <option value="10:00">10:00 hrs</option>
+                                        <option value="11:00">11:00 hrs</option>
+                                        <option value="12:00">12:00 hrs</option>
+                                        <option value="24:00">Todo el dia</option>
+                                    </select>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <h4>{{ 'createTour.Paso10Title' | translate }}</h4>
+                        <br>
+                        <br>
+                        <div class="flex">
+                            <span class="input-group-addon">$</span>
+                            <input class="form-control" type="text" [(ngModel)]="tour.price" name="price" required placeholder="1,000.00" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <h4>{{ 'createTour.Paso10Texto' | translate }}</h4>
+                        <br>
+                        <br>
+                        <div class="flex">
+                            <select class="form-control ng-pristine ng-invalid ng-touched" [(ngModel)]="tour.moneda" name="moneda" required>
+                                                <option value="USD">$ USD</option>
+                                                <option value="EUR">€ EUR</option>
+                                                <option value="MXN">$ MX</option>
+                                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="section-21">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="assets/img/becomeguide/foto.png" alt="" width="300" height="300" class="centrarimagen">
+                        </div>
+                        <div class="col-sm-8" style="padding: 64px;">
+                            <div class="textoblanco">
+                                <h2 style="color:#fff;">4. {{ 'createTour.Iniciostep4' | translate }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container margin_60_35">
+            <div class="form-group">
+                <h6>{{ 'createTour.Paso11Texto' | translate }}</h6>
+                <br>
+                <br>
+            </div>
+            <h4>Administra tus fotos</h4>
+            <br>
+            <div class="row no-gutters">
+                <div *ngFor="let foto of tour.get_photos">
+
+                    <div *ngIf="tour.get_photos.length == 1">
+                        <img [src]='foto.photo | imagen:"tours"' alt="" class="img-responsive" width="200px" height="200px">
+                    </div>
+                    <div *ngIf="tour.get_photos.length > 1">
+                        <form (submit)="eliminarFoto(foto.id)">
+                            <button class="btn btn-danger btn-xs" style="position:absolute"><i class="fa fa-times"></i></button>
+                            <img [src]='foto.photo | imagen:"tours"' alt="" class="img-responsive" width="200px" height="200px">
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <br><br>
+
+            <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+                <ngx-dropzone-label>Haz click o arrastra tus imagenes aqui, tantas como quieras.</ngx-dropzone-label>
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
+                </ngx-dropzone-image-preview>
+            </div>
+            <br><br>
+            <button class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" type="submit">{{ 'prospects.Send' | translate }}</button>
+        </div>
+
+    </form>
+    <div class="add_bottom_45"></div>
