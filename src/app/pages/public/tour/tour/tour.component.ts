@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ShareService } from '@ngx-share/core';
-import { Router } from '@angular/router';
-// import { NgxGalleryOptions, NgxGalleryImage } from 'ngx-gallery';
 import { NgForm, FormGroup } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 
+import { Router } from '@angular/router';
+import { NgxGalleryOptions } from '@kolkov/ngx-gallery';
+import { NgxGalleryImage } from '@kolkov/ngx-gallery';
+import { NgxGalleryAnimation } from '@kolkov/ngx-gallery';
+import { galleryConfiguration } from './configGallery';
 
 import { ToursService, UsuarioService, ComentariosService, RegisterVisitService } from 'src/app/services/service.index';
-import { Title, Meta } from '@angular/platform-browser';
 
 import { Tours } from 'src/app/models/tour.model';
 import { Guia } from 'src/app/models/guia.model';
@@ -33,8 +36,8 @@ export class TourComponent implements OnInit {
   slug: { slug: string };
   cargando = true;
 
-  // galleryOptions: NgxGalleryOptions[];
-  // galleryImages: NgxGalleryImage[];
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
   price: any;
   precioredondo: any;
   numberClients = 1;
@@ -54,23 +57,22 @@ export class TourComponent implements OnInit {
     public _comentarioService: ComentariosService,
     public _registerVisitService: RegisterVisitService,
     public router: Router, ) {
-    console.log(share);
     this.usuario = this._usuarioService.user;
   }
 
   async ngOnInit() {
+
+    this.galleryOptions = galleryConfiguration;
+
     this.slug = {
       slug: this.rutaActiva.snapshot.params.slug,
     };
 
     this.titleService.setTitle(this.slug.slug);
-
-
     this.cargando = true;
 
     await this._toursService.obtenerTour(this.slug.slug)
       .subscribe((resp: any) => {
-        this.setMetaData(resp.Tour);
         this.tour = resp.Tour;
         this.idTour = resp.Tour.id;
         this.tuGuia = resp.Guia[0];
@@ -79,59 +81,16 @@ export class TourComponent implements OnInit {
         this.precioredondo = this.price.toFixed(2);
         this.cargando = false;
         this.set_coordenadasMapa();
-        //  this.galleryImages = this.getGalleryImages();
+        this.galleryImages = this.getGalleryImages();
       });
-    /*
-        this.galleryOptions = [
-          {
-          },
-          {
-            width: '100%',
-            height: '400px',
-            imageAnimation: 'slide',
-            'thumbnails': false,
-            'previewZoom': true,
-            'previewRotate': true,
-            'previewFullscreen': true,
-            'previewKeyboardNavigation': true,
-            'previewCloseOnClick': true,
-            'previewCloseOnEsc': true,
-            'imageInfinityMove': true,
-            'imagePercent': 75,
-            'imageArrowsAutoHide': true,
-          }
-        ];
-        */
+
+
 
     setTimeout(() => {
       this.guardarVisita();
     }, 5000);
   } // end ngInit
 
-  guardarVisita() {
-
-    if (this.usuario) {
-      this._registerVisitService.guardarVisitaTour(this.idTour, this.usuario.id)
-        .subscribe(resp => {
-          console.log(resp);
-        });
-    }
-  }
-
-  setMetaData(seo: any) {
-    this.titleService.setTitle('Conoce ' + seo.name);
-    this.metaTagService.updateTag({ name: 'og:title', content: 'Conoce ' + seo.name });
-    this.metaTagService.updateTag({ name: 'twitter:title', content: 'Conoce ' + seo.name });
-
-    this.metaTagService.updateTag({ name: 'description', content: seo.schedulle });
-    this.metaTagService.updateTag({ name: 'og:description', content: seo.schedulle });
-    this.metaTagService.updateTag({ name: 'twitter:description', content: seo.schedulle });
-
-    this.metaTagService.updateTag({ name: 'og:image', content: URL_AWS + '/images/tours/' + seo.get_photos[0].photo });
-    this.metaTagService.updateTag({ name: 'og:image:secure_url', content: URL_AWS + '/images/tours/' + seo.get_photos[0].photo });
-    this.metaTagService.updateTag({ name: 'twitter:image', content: URL_AWS + '/images/tours/' + seo.get_photos[0].photo });
-
-  }
 
   getGalleryImages() {
     const images = [];
@@ -149,6 +108,8 @@ export class TourComponent implements OnInit {
     return images;
   }
 
+
+
   set_coordenadasMapa() {
     const cordenada = this.tour.mapaGoogle.split(',');
     this.mapaGoogleLat = +cordenada[0];
@@ -163,8 +124,27 @@ export class TourComponent implements OnInit {
 
   }
 
+  increment() {
+    this.numberClients++;
+    this.precioredondo = this.tour.price;
+    this.precioredondo = (this.precioredondo * this.numberClients).toFixed(2);
+  }
+
+  decrement() {
+    if (this.numberClients === 1) {
+      return false;
+    }
+    if (this.numberClients > 1) {
+      this.numberClients--;
+      this.precioredondo = this.tour.price;
+      this.precioredondo = (this.precioredondo * this.numberClients).toFixed(2);
+    }
+  }
 
   reservarTour(forma: NgForm) {
+
+    this.router.navigate(['/payment/tour/' + this.tour.slug])
+
 
     this.fecha = forma.value.fecha.year + '-' + forma.value.fecha.month + '-' + forma.value.fecha.day;
 
@@ -175,6 +155,16 @@ export class TourComponent implements OnInit {
     }));
 
     this.router.navigate(['/payment/tour/' + this.tour.slug])
+  }
+
+  guardarVisita() {
+
+    if (this.usuario) {
+      this._registerVisitService.guardarVisitaTour(this.idTour, this.usuario.id)
+        .subscribe(resp => {
+          console.log(resp);
+        });
+    }
   }
 
 

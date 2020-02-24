@@ -12,7 +12,7 @@ import { ShareModule } from '@ngx-share/core';
 import { HttpClient, HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { NgxGalleryModule } from 'ngx-gallery';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
 // Rutas

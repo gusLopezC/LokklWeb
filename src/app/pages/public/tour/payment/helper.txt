@@ -1,0 +1,145 @@
+import { Component, OnInit } from '@angular/core';
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+import swal from 'sweetalert2';
+
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToursService, UsuarioService } from 'src/app/services/service.index';
+import { Tours } from 'src/app/models/tour.model';
+
+
+@Component({
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.css']
+})
+export class PaymentComponent implements OnInit {
+
+  public payPalConfig?: IPayPalConfig;
+
+
+  slug: { slug: string };
+  cargando: boolean = true;
+  mostrarPagoCard: boolean = true;
+  mostrarPagoPaypal: boolean = false;
+  botondefault: boolean = true;
+  tour: Tours;
+  showSuccess: boolean;
+  public fechaReserva;
+  public totalPagar;
+  public cantidadTuristas;
+  public precioNormal;
+  public price;
+
+
+  constructor(private rutaActiva: ActivatedRoute,
+    public _toursService: ToursService,
+    public _UsuarioService: UsuarioService,
+    public router: Router) {
+
+    if (!(localStorage.getItem('user'))) {
+      swal.fire('Importante', 'Por favor inicia sesión para continuar', 'warning');
+      setTimeout(() => {
+        this.router.navigate(['/login'])
+      }, 4000);
+    }
+  }
+
+  ngOnInit() {
+    this.slug = {
+      slug: this.rutaActiva.snapshot.params.slug,
+    };
+    this.cargando = true;
+
+
+    this.cargarTour();
+    setTimeout(() => {
+      this.initConfig();
+    }, 2000);
+  }
+
+
+  cargarTour() {
+    this._toursService.obtenerTour(this.slug.slug)
+      .subscribe((resp: any) => {
+        this.tour = resp.Tour;
+        let item = JSON.parse(localStorage.getItem('reserva'));
+        this.fechaReserva = item.fecha;
+        this.price = this.tour.price;
+        this.precioNormal = (this.price * item.cantidadTuristas).toFixed(2);
+        this.totalPagar = (this.tour.priceFinal * item.cantidadTuristas).toFixed(2);
+        this.cantidadTuristas = item.cantidadTuristas;
+
+        this.cargando = false;
+      });
+  }//end cargar tour
+
+  mostrarMetodoPago(metodo: string) {
+    if (metodo == "Card") {
+      this.mostrarPagoCard = true;
+      this.mostrarPagoPaypal = false;
+    }
+    if (metodo == "Paypal") {
+      this.mostrarPagoCard = false;
+      this.mostrarPagoPaypal = true
+    }
+  }
+
+
+  //ConfiguracionPaypal
+  private initConfig(): void {
+
+    this.payPalConfig = {
+      currency: this.tour.moneda,
+      clientId: 'AaFE9XgELdq88L7RQn_xba4A5Py9EXYQQswA5oU-VczhTioD4prdD3qQOkCmkUTwk8gupvBM8_nesmJe',
+      createOrderOnClient: (data) => <ICreateOrderRequest>{
+        intent: 'CAPTURE',
+        purchase_units: [
+          {
+            amount: {
+              currency_code: this.tour.moneda,
+              value: this.totalPagar,
+              breakdown: {
+                item_total: {
+                  currency_code: this.tour.moneda,
+                  value: this.totalPagar
+                }
+              }
+            },
+            items: [
+              {
+                name: this.tour.name,
+                quantity: '1',
+                category: 'DIGITAL_GOODS',
+                unit_amount: {
+                  currency_code: this.tour.moneda,
+                  value: this.totalPagar,
+                },
+              }
+            ]
+          }
+        ]
+      },
+
+      onApprove: (data, actions) => {
+        console.log('onApprove: la transacción se aprobó, pero no se autorizó', data, actions);
+        actions.order.get().then(details => {
+          console.log('onApprove: puede obtener todos los detalles del pedido en onApprove: ', details);
+        });
+      },
+      onClientAuthorization: (data) => {
+        console.log('onClientAuthorization: probablemente debería informar a su servidor sobre la transacción completada en este momento', data);
+        this.showSuccess = true;
+      },
+      onCancel: (data, actions) => {
+        console.log('OnCancel', data, actions);
+      },
+      onError: err => {
+        console.log('OnError', err);
+      },
+      onClick: (data, actions) => {
+        console.log('onClick', data, actions);
+      },
+    };
+  }//end paypal
+}
+  

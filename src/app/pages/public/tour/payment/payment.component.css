@@ -1,0 +1,42 @@
+.payment-method {
+    display: flex;
+    margin: 25px;
+    justify-content: space-between;
+}
+
+.method {
+    display: flex;
+    flex-direction: column;
+    width: 382px;
+    height: 122px;
+    padding-top: 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background-color: rgb(249, 249, 249);
+    justify-content: center;
+    align-items: center;
+}
+
+.card-logos {
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.radio-input {
+    margin-top: 20px;
+}
+
+input[type='radio'] {
+    display: inline-block;
+}
+
+.paypal-button .paypal-button-card {
+    display: none !important;
+}
+
+.paypal-powered-by {
+    display: none !important;
+}
