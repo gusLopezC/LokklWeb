@@ -9,7 +9,7 @@ import { CarouselModule } from 'src/app/services/service.index';
 import { PAYMENT_ROUTES } from './payment.routes';
 //Componentes
 import { PaymentComponent } from './payment.component';
-
+import { SpineerModule } from './../../../common/spineer/spineer.module';
 
 
 
@@ -22,6 +22,7 @@ import { PaymentComponent } from './payment.component';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
+    SpineerModule,
     TranslateModule,
     NgxPayPalModule,
     PAYMENT_ROUTES

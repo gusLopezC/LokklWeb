@@ -33,7 +33,7 @@ import { TourdetailsComponent } from './public/tour/tourdetails.component';
 
 
 import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.component';
-import { SpineerComponent } from './common/spineer/spineer.component';
+import { SpineerModule } from './common/spineer/spineer.module';
 
 
 @NgModule({
@@ -46,7 +46,6 @@ import { SpineerComponent } from './common/spineer/spineer.component';
         TourComponent,
         TourdetailsComponent,
         ProfilelokklComponent,
-        SpineerComponent
     ],
     exports: [
     ],
@@ -59,6 +58,7 @@ import { SpineerComponent } from './common/spineer/spineer.component';
         PipesModule,
         RecaptchaModule,
         RecaptchaFormsModule,
+        SpineerModule,
         // CarouselModule,
         TranslateModule,
         ShareModule,

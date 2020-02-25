@@ -41,6 +41,7 @@ export function createTranslateLoader(http: HttpClient) {
     ServiceModule,
     SharedModule,
     FormsModule,
+    InfiniteScrollModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
