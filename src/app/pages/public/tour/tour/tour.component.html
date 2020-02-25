@@ -66,9 +66,7 @@
                                     </div>
                                     <form ngNativeValidate="ngNativeValidate" #f="ngForm" (ngSubmit)="reservarTour(f)">
                                         <div class="form-group">
-                                            <input class="form-control" type="date" name="fecha" ngModel="ngModel"
-                                                required="required" placeholder="dd/mm/yy">
-                                            <i class="icon_calendar"></i>
+                                            
                                         </div>
 
                                         <div class="product-counter">
@@ -97,6 +95,7 @@
                                     <strong>
                                         {{ 'tour.comparte' | translate }}
                                     </strong>
+                                    <app-social-share></app-social-share>
                                 </ul>
 
                                 <section id="description">
@@ -156,13 +155,7 @@
                                 </div>
                                 <form ngNativeValidate="ngNativeValidate" #f="ngForm" (ngSubmit)="reservarTour(f)">
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
-                                            name="fecha" ngModel="ngModel" required>
-
-                                        <!--<input 
-                                             #d="ngbDatepicker" (click)="d.toggle()"
-                                            class="form-control" type="date" ="required" placeholder="dd/mm/yy"> -->
-                                        <i class="icon_calendar"></i>
+                                       
                                     </div>
 
                                     <div class="product-counter">
@@ -189,6 +182,7 @@
                                 <strong>
                                     {{ 'tour.comparte' | translate }}
                                 </strong>
+                                <app-social-share></app-social-share>
                             </ul>
 
                             <section id="description">

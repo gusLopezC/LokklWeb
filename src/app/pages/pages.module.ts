@@ -8,9 +8,9 @@ import { RecaptchaFormsModule } from 'ng-recaptcha';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { AgmCoreModule } from '@agm/core';
-import { ShareModule } from '@ngx-share/core';
+import { ShareButtonsConfig, ShareModule } from '@ngx-share/core';
 import { RouterModule } from '@angular/router';
-
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
@@ -34,6 +34,12 @@ import { TourdetailsComponent } from './public/tour/tourdetails.component';
 
 import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.component';
 import { SpineerModule } from './common/spineer/spineer.module';
+import { SocialShareComponent } from './public/tour/social-share/social-share.component';
+
+const customConfig: ShareButtonsConfig = {
+    autoSetMeta: true,
+    twitterAccount: 'ankitsharma_007'
+};
 
 
 @NgModule({
@@ -46,6 +52,7 @@ import { SpineerModule } from './common/spineer/spineer.module';
         TourComponent,
         TourdetailsComponent,
         ProfilelokklComponent,
+        SocialShareComponent,
     ],
     exports: [
     ],
@@ -59,9 +66,9 @@ import { SpineerModule } from './common/spineer/spineer.module';
         RecaptchaModule,
         RecaptchaFormsModule,
         SpineerModule,
-        // CarouselModule,
+        FontAwesomeModule,
         TranslateModule,
-        ShareModule,
+        ShareModule.withConfig(customConfig),
         NgxGalleryModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyDJ-1MH4tKasGZGBdQ7Kp9LJqSSrTSy_Uo',

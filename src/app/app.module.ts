@@ -14,7 +14,6 @@ import { ServiceModule } from './services/service.module';
 // Modulos externos
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './pages/common/shared.module';
-import { CarouselModule } from './services/carousel/carousel.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';

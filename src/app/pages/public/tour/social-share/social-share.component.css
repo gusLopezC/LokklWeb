@@ -1,0 +1,19 @@
+
+
+.botoncirculo{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 2.125rem;
+    height: 2.125rem;
+    border: .125rem solid transparent;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 1.1625rem;
+    font-weight: normal;
+    line-height: 1em;
+    border-radius: 1.1625rem;
+    margin-right: .25rem;
+}

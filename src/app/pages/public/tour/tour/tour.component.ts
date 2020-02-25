@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ShareService } from '@ngx-share/core';
 import { NgForm, FormGroup } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 
@@ -51,7 +50,6 @@ export class TourComponent implements OnInit {
     private titleService: Title,
     private metaTagService: Meta,
     private rutaActiva: ActivatedRoute,
-    public share: ShareService,
     public _toursService: ToursService,
     public _usuarioService: UsuarioService,
     public _comentarioService: ComentariosService,
