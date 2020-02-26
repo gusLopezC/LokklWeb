@@ -13,6 +13,7 @@ import { isPlatformBrowser, isPlatformServer } from '@angular/common';
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
+  cargando = true;
 
 
   constructor(public translate: TranslateService,
@@ -24,6 +25,14 @@ export class FooterComponent {
       translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
 
     }
+
+  }
+
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.cargando = false;
+    }, 2000);
 
   }
 

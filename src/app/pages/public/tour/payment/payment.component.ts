@@ -42,21 +42,22 @@ export class PaymentComponent implements OnInit {
 
 
   constructor(
+
     private rutaActiva: ActivatedRoute,
     public _toursService: ToursService,
     public _usuarioService: UsuarioService,
     public _PaymentService: PaymentService,
-    public router: Router) {
-    this.usuario = this._usuarioService.user;
-    if (!(localStorage.getItem('user'))) {
-      swal.fire(
-        'Importante',
-        'Por favor inicia sesión para continuar',
-        'warning');
-      setTimeout(() => {
-        this.router.navigate(['/login']);
-      }, 4000);
-    }
+    public router: Router,
+    private route: ActivatedRoute, ) {
+
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.tour = this.router.getCurrentNavigation().extras.state.tour;
+        this.fechaReserva = this.router.getCurrentNavigation().extras.state.fecha;
+        this.cantidadTuristas = this.router.getCurrentNavigation().extras.state.cantidadTuristas;
+      }
+    });
+    this.verificarSesion();
   }
 
   ngOnInit() {
@@ -86,12 +87,10 @@ export class PaymentComponent implements OnInit {
     await this._toursService.obtenerTour(this.slug.slug)
       .subscribe((resp: any) => {
         this.tour = resp.Tour;
-        let item = JSON.parse(localStorage.getItem('reserva'));
-        this.fechaReserva = item.fecha;
         this.price = this.tour.price;
-        this.precioNormal = (this.price * item.cantidadTuristas).toFixed(2);
-        this.totalPagar = (this.tour.priceFinal * item.cantidadTuristas).toFixed(2);
-        this.cantidadTuristas = item.cantidadTuristas;
+        this.precioNormal = (this.price * this.cantidadTuristas).toFixed(2);
+        this.totalPagar = (this.tour.priceFinal * this.cantidadTuristas).toFixed(2);
+        this.cantidadTuristas = this.cantidadTuristas;
         this.initConfig();
         this.cargando = false;
       });
@@ -313,5 +312,20 @@ export class PaymentComponent implements OnInit {
         });
         this.router.navigate(['/users/myTraverls']);
       });
+  }
+
+
+
+  verificarSesion() {
+    this.usuario = this._usuarioService.user;
+    if (!(localStorage.getItem('user'))) {
+      swal.fire(
+        'Importante',
+        'Por favor inicia sesión para continuar',
+        'warning');
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 4000);
+    }
   }
 }

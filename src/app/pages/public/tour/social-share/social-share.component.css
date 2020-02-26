@@ -17,3 +17,16 @@
     border-radius: 1.1625rem;
     margin-right: .25rem;
 }
+
+
+.mat-fab .mat-button-wrapper {
+    padding: 0px 0 !important;
+    display: inline-block;
+    line-height: 0px;
+}
+
+.mat-button-wrapper{
+    padding: 0px 0 !important;
+    display: inline-block;
+    line-height: 0px;
+}

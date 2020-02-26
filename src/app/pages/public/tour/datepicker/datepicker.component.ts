@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { Router, NavigationExtras } from '@angular/router';
+import * as moment from 'moment';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-datepicker',
@@ -9,20 +10,23 @@ import { NgForm } from '@angular/forms';
 })
 export class DatepickerComponent implements OnInit {
 
+
   @Input() tour: any;
 
+  startDate = new Date();
+  horaInicio: string;
   fecha: string;
   precioredondo: any;
   numberClients = 1;
 
 
-  constructor(public router: Router, ) { }
+  constructor(public router: Router) {
+  }
 
   ngOnInit(): void {
 
     this.precioredondo = this.tour.price;
   }
-
 
 
 
@@ -44,20 +48,35 @@ export class DatepickerComponent implements OnInit {
   }
 
 
-  reservarTour(forma: NgForm) {
+  reservarTour() {
 
-    this.router.navigate(['/payment/tour/' + this.tour.slug])
+    console.log(this.startDate);
+    console.log(this.horaInicio);
 
+    if (this.horaInicio == null || this.horaInicio === '') {
+      swal.fire(
+        'Importante',
+        'Selecicona la hora de inicio de tu tour',
+        'warning');
 
-    this.fecha = forma.value.fecha.year + '-' + forma.value.fecha.month + '-' + forma.value.fecha.day;
+      return false;
+    }
 
-    localStorage.removeItem('reserva');
-    localStorage.setItem('reserva', JSON.stringify({
-      fecha: this.fecha,
-      cantidadTuristas: this.numberClients,
-    }));
+    const momentObj = moment(this.startDate);
+    const dateInFormat = momentObj.format('YY-MM-DD');
 
-    this.router.navigate(['/payment/tour/' + this.tour.slug])
+    console.log(dateInFormat);
+
+    let navigationExtras: NavigationExtras = {
+      state: {
+        fecha: dateInFormat,
+        cantidadTuristas: this.numberClients,
+        tour: this.tour
+      }
+    };
+
+    this.router.navigate(['/payment/tour/' + this.tour.slug], navigationExtras);
+
   }
 
 }

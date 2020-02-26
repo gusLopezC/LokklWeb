@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '../material.module';
+import { IgxTimePickerModule } from 'igniteui-angular';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
@@ -58,6 +59,7 @@ const customConfig: ShareButtonsConfig = {
     imports: [
         CommonModule,
         MaterialModule,
+        IgxTimePickerModule,
         FormsModule,
         RouterModule,
         ReactiveFormsModule,
