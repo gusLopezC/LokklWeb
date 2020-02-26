@@ -15,7 +15,6 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 
 import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -40,7 +39,6 @@ export function provideConfig() {
         PipesModule,
         SocialLoginModule,
         TranslateModule,
-        BrowserAnimationsModule
     ],
     declarations: [
         NopagefoundComponent,

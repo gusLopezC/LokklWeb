@@ -1,0 +1,32 @@
+<div class="box_detail booking">
+    <div class="price">
+        <span>$ {{precioredondo}} {{tour?.moneda}}</span>
+    </div>
+    <form ngNativeValidate="ngNativeValidate" #f="ngForm" (ngSubmit)="reservarTour(f)">
+        <div class="form-group">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="product-counter">
+            <input id="minus" type="button" (click)="decrement()" value="-" />
+            <input id="quantity" type="text" value="{{numberClients}}" name="numberClients" readonly />
+            <input id="plus" type="button" (click)="increment()" value="+" />
+        </div>
+        <br>
+        <br>
+
+        <input type="submit" class="btn_1 full-width purchase" value="{{ 'tour.Reservar' | translate }}">
+
+        <div class="text-center">
+            <small>
+                {{ 'tour.NoMoney' | translate }}
+            </small>
+        </div>
+    </form>
+</div>

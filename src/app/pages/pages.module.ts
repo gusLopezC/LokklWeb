@@ -2,6 +2,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MaterialModule } from '../material.module';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha';
@@ -12,7 +14,6 @@ import { ShareButtonsConfig, ShareModule } from '@ngx-share/core';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
-
 
 // Rutas
 import { PAGES_ROUTES } from './pages.routes';
@@ -26,15 +27,12 @@ import { AboutusComponent } from './public/aboutus/aboutus.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { BecomeguideComponent } from './public/becomeguide/becomeguide.component';
 import { MosaicoComponent } from './public/aboutus/mosaico/mosaico.component';
-
 import { TourComponent } from './public/tour/tour/tour.component';
 import { TourdetailsComponent } from './public/tour/tourdetails.component';
-// import { CarouselModule } from '../services/carousel/carousel.module';
-
-
 import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.component';
 import { SpineerModule } from './common/spineer/spineer.module';
 import { SocialShareComponent } from './public/tour/social-share/social-share.component';
+import { DatepickerComponent } from './public/tour/datepicker/datepicker.component';
 
 const customConfig: ShareButtonsConfig = {
     autoSetMeta: true,
@@ -53,11 +51,13 @@ const customConfig: ShareButtonsConfig = {
         TourdetailsComponent,
         ProfilelokklComponent,
         SocialShareComponent,
+        DatepickerComponent,
     ],
     exports: [
     ],
     imports: [
         CommonModule,
+        MaterialModule,
         FormsModule,
         RouterModule,
         ReactiveFormsModule,

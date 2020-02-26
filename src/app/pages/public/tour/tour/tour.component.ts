@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { NgForm, FormGroup } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
@@ -38,12 +39,9 @@ export class TourComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   price: any;
-  precioredondo: any;
-  numberClients = 1;
 
 
   forma: FormGroup;
-  fecha: string;
   idTour: any;
 
   constructor(
@@ -54,7 +52,7 @@ export class TourComponent implements OnInit {
     public _usuarioService: UsuarioService,
     public _comentarioService: ComentariosService,
     public _registerVisitService: RegisterVisitService,
-    public router: Router, ) {
+     ) {
     this.usuario = this._usuarioService.user;
   }
 
@@ -76,13 +74,10 @@ export class TourComponent implements OnInit {
         this.tuGuia = resp.Guia[0];
         this.Comentarios = resp.Comentarios;
         this.price = this.tour.price;
-        this.precioredondo = this.price.toFixed(2);
         this.cargando = false;
         this.set_coordenadasMapa();
         this.galleryImages = this.getGalleryImages();
       });
-
-
 
     setTimeout(() => {
       this.guardarVisita();
@@ -106,8 +101,6 @@ export class TourComponent implements OnInit {
     return images;
   }
 
-
-
   set_coordenadasMapa() {
     const cordenada = this.tour.mapaGoogle.split(',');
     this.mapaGoogleLat = +cordenada[0];
@@ -115,45 +108,7 @@ export class TourComponent implements OnInit {
 
   }
 
-  onChange(numberClients) {
-    this.precioredondo = this.tour.price;
-    this.precioredondo = (this.precioredondo * numberClients).toFixed(2);
-    this.numberClients = numberClients;
 
-  }
-
-  increment() {
-    this.numberClients++;
-    this.precioredondo = this.tour.price;
-    this.precioredondo = (this.precioredondo * this.numberClients).toFixed(2);
-  }
-
-  decrement() {
-    if (this.numberClients === 1) {
-      return false;
-    }
-    if (this.numberClients > 1) {
-      this.numberClients--;
-      this.precioredondo = this.tour.price;
-      this.precioredondo = (this.precioredondo * this.numberClients).toFixed(2);
-    }
-  }
-
-  reservarTour(forma: NgForm) {
-
-    this.router.navigate(['/payment/tour/' + this.tour.slug])
-
-
-    this.fecha = forma.value.fecha.year + '-' + forma.value.fecha.month + '-' + forma.value.fecha.day;
-
-    localStorage.removeItem('reserva');
-    localStorage.setItem('reserva', JSON.stringify({
-      fecha: this.fecha,
-      cantidadTuristas: this.numberClients,
-    }));
-
-    this.router.navigate(['/payment/tour/' + this.tour.slug])
-  }
 
   guardarVisita() {
 
