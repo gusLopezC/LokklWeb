@@ -50,19 +50,19 @@
                             </li>
                         </ul>
                         <div *ngIf="reserva.status == 'Pendiente'">
-                            <p><a class="btn_1 gray" [routerLink]="['/users/chat',reserva.order_nr]"><i
+                            <p><a class="btn_1 gray" (click)="enterChat(reserva,reserva.get_guia[0].name)">
+                                    <i
                                         class="fa fa-fw fa-envelope"></i>{{ 'reservaciones.EnviarMensaje' | translate }}</a>
                             </p>
                             <ul class="buttons">
-
                                 <li (click)="cancelarReservacion(reserva.order_nr)"><a class="btn_1 gray delete"><i
                                             class="fa fa-fw fa-times-circle-o"></i>
                                         {{ 'reservaciones.Cancelar' | translate }}</a></li>
                             </ul>
                         </div>
                         <div *ngIf="reserva.status == 'Aceptado'">
-                            <p><a class="btn_1 gray" [routerLink]="['/users/chat',reserva.order_nr]"
-                                    routerLinkActive="router-link-active"><i
+                            <p><a class="btn_1 gray" (click)="enterChat(reserva,reserva.get_guia[0].name)">
+                                    <i
                                         class="fa fa-fw fa-envelope"></i>{{ 'reservaciones.EnviarMensaje' | translate }}</a>
                             </p>
                             <ul class="buttons">

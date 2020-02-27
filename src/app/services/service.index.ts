@@ -12,9 +12,9 @@ export { PaymentService } from './payment/payment.service';
 export { ProspectosService } from './prospectos/prospectos.service';
 export { ReservasService } from './reservas/reservas.service';
 export { GuiaService } from './guia/guia.service';
+export { SettingService } from './settings/setting-service';
+export { ChatService } from './chat/chat.service';
 
 
 /*
-export { SettingService } from './settings/setting-service';
-export { ChatService } from './chat/chat.service';
 */

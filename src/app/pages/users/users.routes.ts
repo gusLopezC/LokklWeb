@@ -56,7 +56,7 @@ const pagesRoutes: Routes = [
         path: 'calender', pathMatch: 'full', canActivate: [RoleGuiaVerificadoGuardGuard], component: CalenderComponent
     },
     {
-        path: 'chat/:pedido', pathMatch: 'full', component: ChatComponent
+        path: 'chat', pathMatch: 'full', component: ChatComponent
     },
 
 

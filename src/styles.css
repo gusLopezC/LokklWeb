@@ -3,9 +3,8 @@
 /* 
 */
 
-@import '~@ngx-share/button/themes/material/material-dark-theme';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~@ngx-share/button/themes/material/material-dark-theme';
 
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family:Exo,sans-serif }

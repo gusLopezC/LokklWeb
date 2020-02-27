@@ -13,12 +13,8 @@ import {
   ProspectosService,
   ReservasService,
   GuiaService,
-
-  /*
-    SettingService,
-    GuiaService,
-    ChatService,
-    */
+  SettingService,
+  ChatService,
 } from './service.index';
 
 @NgModule({
@@ -38,11 +34,8 @@ import {
     ProspectosService,
     ReservasService,
     GuiaService,
-
-    /*
-     SettingService,
-     ChatService,
-     */
+    SettingService,
+    ChatService
   ],
   declarations: []
 })

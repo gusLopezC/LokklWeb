@@ -4,7 +4,7 @@ import { ToursService, UsuarioService, ReservasService } from 'src/app/services/
 import { Usuario } from 'src/app/models/usuario.model';
 import { Payment } from 'src/app/models/payment.model';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 
 @Component({
@@ -39,6 +39,7 @@ export class MisViajesComponent implements OnInit {
       .subscribe((resp: any) => {
         if (resp.Reservaciones.length >= 1) {
           this.reservas = resp.Reservaciones;
+          console.log(this.reservas)
           this.HayTours = true
           this.NoHayTours = false;
         }
@@ -77,4 +78,14 @@ export class MisViajesComponent implements OnInit {
     })
   }
 
+  enterChat(reserva, nameGuia) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        reserva: reserva,
+        nameGuia: nameGuia
+      }
+    };
+    this.router.navigate(['/users/chat'], navigationExtras);
+
+  }
 }
