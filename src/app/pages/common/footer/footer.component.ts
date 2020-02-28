@@ -1,7 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
-
 
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
@@ -12,12 +10,15 @@ import { isPlatformBrowser, isPlatformServer } from '@angular/common';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit, OnDestroy {
+
   cargando = true;
+  //keep refs to subscriptions to be able to unsubscribe later
 
 
-  constructor(public translate: TranslateService,
-    @Inject(PLATFORM_ID) private platformId: Object
+  constructor(
+    public translate: TranslateService,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     const browserLang = translate.getBrowserLang();
     if (isPlatformBrowser(this.platformId)) {
@@ -29,7 +30,7 @@ export class FooterComponent {
   }
 
 
-  ngOnInit(): void {
+  ngOnInit() {
     setTimeout(() => {
       this.cargando = false;
     }, 2000);
@@ -38,5 +39,10 @@ export class FooterComponent {
 
   changeLang(lang: string) {
     this.translate.use(lang);
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to cookieconsent observables to prevent memory leaks
+
   }
 }

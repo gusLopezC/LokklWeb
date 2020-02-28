@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaterialCookieComplianceModule } from 'ngx-material-cookie-compliance';
 
 
 import { HeaderComponent } from './header/header.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-
-
 import { FooterComponent } from './footer/footer.component';
 
 
@@ -28,9 +27,11 @@ let config = new AuthServiceConfig([
         provider: new FacebookLoginProvider('812641425798592')
     }
 ]);
+
 export function provideConfig() {
     return config;
 }
+
 
 @NgModule({
     imports: [
@@ -39,6 +40,7 @@ export function provideConfig() {
         PipesModule,
         SocialLoginModule,
         TranslateModule,
+        NgxMaterialCookieComplianceModule
     ],
     declarations: [
         NopagefoundComponent,
