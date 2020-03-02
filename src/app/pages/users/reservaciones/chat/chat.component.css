@@ -39,6 +39,7 @@
 }
 
 .chat-list li.reverse {
+    margin-right: 65px;
     text-align: right;
 }
 
@@ -64,9 +65,30 @@
 .chat-list li .chat-content .box {
     display: inline-block;
     margin-bottom: 10px;
-    color: #263238;
 }
 
+.bg-light-inverse{
+    border-radius: 50px;
+    margin: 0 15px 20px;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 20px;
+    background-color: #2095FE;
+    color: #fff;
+    margin-left: 100px;
+     text-align: right;
+}
+
+.bg-light-info{
+    border-radius: 50px;
+    margin: 0 15px 20px;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 20px;
+    background-color: #E5E4E9;
+    color: #363636;
+    margin-right: 100px;
+}
 .chat-list li .chat-time {
     display: inline-block;
     text-align: right;

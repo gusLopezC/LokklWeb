@@ -50,8 +50,6 @@ export class ChatService {
 
   sendMessage(reserva, mensaje: string): Observable<any> {
 
-    console.log(reserva);
-
     const cuerpoDatos = {
       id_reservacion: reserva.id_reservacion,
       id_comprador: reserva.id_comprador,

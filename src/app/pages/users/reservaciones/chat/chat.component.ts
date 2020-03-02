@@ -24,6 +24,7 @@ export class ChatComponent {
   user: Usuario;
   nameGuia: any;
   evento: NgScrollbar;
+  fotoContrario: any;
 
   constructor(
     private _usuarioService: UsuarioService,
@@ -36,6 +37,7 @@ export class ChatComponent {
       if (this.router.getCurrentNavigation().extras.state) {
         this.reserva = this.router.getCurrentNavigation().extras.state.reserva;
         this.nameGuia = this.router.getCurrentNavigation().extras.state.nameGuia;
+        this.fotoContrario = this.reserva.get_guia[0].img;
       }
     });
   }
