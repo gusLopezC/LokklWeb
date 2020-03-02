@@ -10,7 +10,7 @@ import { isPlatformBrowser, isPlatformServer } from '@angular/common';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
 })
-export class FooterComponent implements OnInit, OnDestroy {
+export class FooterComponent implements OnInit {
 
   cargando = true;
   //keep refs to subscriptions to be able to unsubscribe later
@@ -32,7 +32,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   ngOnInit() {
     setTimeout(() => {
       this.cargando = false;
-    }, 2000);
+    }, 2500);
 
   }
 
@@ -40,8 +40,5 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.translate.use(lang);
   }
 
-  ngOnDestroy() {
-    // unsubscribe to cookieconsent observables to prevent memory leaks
-
-  }
+  
 }
