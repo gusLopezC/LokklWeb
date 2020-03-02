@@ -29,7 +29,6 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   }
 
-
   ngOnInit() {
     setTimeout(() => {
       this.cargando = false;
