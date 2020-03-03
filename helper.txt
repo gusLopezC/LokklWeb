@@ -11,3 +11,11 @@
             try_files $uri $uri/ /index.html =404;
         }
     }
+
+
+
+.city-text[_ngcontent-serverApp-c47] {
+    margin-bottom: 24px;
+    /* max-width: 80%; */
+    text-align: justify;
+}
