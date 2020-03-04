@@ -25,6 +25,7 @@ export class ToursService {
 
   token: string;
   usuario: Usuario;
+  lenguaje: string;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -94,7 +95,7 @@ export class ToursService {
     if (isPlatformBrowser(this.platformId)) {
       this.token = localStorage.getItem('token');
     }
-    
+
     const url = URL_SERVICIOS + '/api/tours/uploadFiles/' + id;
     const formData = new FormData();
     for (let i = 0; i < fotos.length; i++) {
@@ -148,7 +149,10 @@ export class ToursService {
   }
 
   obtenerTour(slug: string) {
-    const url = URL_SERVICIOS + '/api/tours/ObtenerTour/' + slug;
+    if (isPlatformBrowser(this.platformId)) {
+      this.lenguaje = localStorage.getItem('lenguaje');
+    }
+    const url = URL_SERVICIOS + '/api/tours/ObtenerTour/' + slug + '/' + this.lenguaje;
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');

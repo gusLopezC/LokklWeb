@@ -11,6 +11,8 @@ export class AppComponent {
 
   title = 'Los mejores tours';
 
+
+
   /**
    *
    */
@@ -18,9 +20,11 @@ export class AppComponent {
     private seo: SettingService,
     private translate: TranslateService,
   ) {
+    const browserLang = translate.getBrowserLang();
+    localStorage.setItem('lenguaje', browserLang);
     this.setSeo();
     translate.setDefaultLang('es');
-    translate.use('es')
+    translate.use(browserLang)
 
   }
 
@@ -33,4 +37,6 @@ export class AppComponent {
       keywords: 'mobile, android, ios, swift, cloud development' // Keywords
     });
   }
+
+
 }
