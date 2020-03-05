@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { ToursCiudadService } from 'src/app/services/service.index';
 import { Tours } from 'src/app/models/tour.model';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -16,12 +17,15 @@ export class CiudadesComponent {
   tours: Tours[] = [];
   numberPagination = 1;
   lastPage = 0;
+  browserLang: string;
 
 
   constructor(
     public _toursCiudadService: ToursCiudadService,
+    private translate: TranslateService,
     public router: Router,
   ) {
+    this.browserLang = translate.getBrowserLang();
     this.obtenerPrimerosTour();
   }
 
@@ -33,8 +37,14 @@ export class CiudadesComponent {
         this.total = resp.Tour.total;
         // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < resp.Tour.data.length; i++) {
+          if (resp.Tour.data[i].lenguaje !== this.browserLang) {
+            resp.Tour.data[i].name = resp.Tour.data[i].nameIngles;
+          }
+
           this.dataList.push(resp.Tour.data[i]);
           this.lastPage = resp.Tour.last_page;
+
+
         }
         this.numberPagination++;
       });

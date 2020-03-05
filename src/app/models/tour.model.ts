@@ -9,6 +9,7 @@ export class Tours {
         public puntoInicio: string,
 
         public name: string,
+        public nameIngles: string,
         public schedulle: string,
 
         public itinerary: string[],
@@ -27,6 +28,7 @@ export class Tours {
         public calification?: string,
         public id?: string,
         public get_photos?: string[],
+        public lenguaje?: string,
         public verificado?: string,
     ) { }
 

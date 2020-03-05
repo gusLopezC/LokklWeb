@@ -33,7 +33,7 @@ export class EditMyTourComponent implements OnInit {
   miFormulario: FormGroup;
   usuario: Usuario;
   token: string;
-  tour: Tours = new Tours('', '', '', '', '', '', '', '', null, null, null, '', '', '', '');
+  tour: Tours = new Tours('', '', '', '', '', '', '', '', null, null, null, '', '', '', '', null, null);
 
 
   public latitude: number;

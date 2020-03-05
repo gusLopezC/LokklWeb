@@ -36,7 +36,7 @@ export class CreateTourComponent implements OnInit {
   listidiomas: any;
   listidiomasEspaniol: any;
   public BanderaIdioma = false;
-  tour: Tours = new Tours('', '', '', '', '', '', '', '', null, null, null, '', '', '', '');
+  tour: Tours = new Tours('', '', '', '', '', '', '', '', '', null, null, null, '', '', '', '', null);
 
   public latitude: number;
   public longitude: number;
@@ -275,6 +275,7 @@ export class CreateTourComponent implements OnInit {
       this.coordenadasGoogle,
       formValue.value.puntoInicio,
       formValue.value.name,
+      null,
       formValue.value.schedulle,
       formValue.value.itinerary,
       formValue.value.whatsIncluded,

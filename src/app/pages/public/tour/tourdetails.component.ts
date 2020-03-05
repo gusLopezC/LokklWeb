@@ -11,6 +11,7 @@ import swal from 'sweetalert2';
 import { ToursService, UsuarioService } from 'src/app/services/service.index';
 import { Tours } from 'src/app/models/tour.model';
 import { DatosTourExtra } from '../../../models/DatosTourExtra.model';
+import { TranslateService } from '@ngx-translate/core';
 
 declare var google: any;
 
@@ -45,12 +46,14 @@ export class TourdetailsComponent implements OnInit {
   @ViewChild('search', { static: false })
   public searchElementRef: ElementRef;
   placeID: string;
+  browserLang: string;
 
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private rutaActiva: ActivatedRoute,
     public _toursService: ToursService,
+    private translate: TranslateService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     public router: Router, ) {
@@ -58,6 +61,7 @@ export class TourdetailsComponent implements OnInit {
       ciudad: this.rutaActiva.snapshot.params.ciudad,
     };
     this.buscarTour(this.rutaActiva.snapshot.paramMap.get('placeID'));
+    this.browserLang = translate.getBrowserLang();
   }
 
   ngOnInit() {
@@ -108,9 +112,12 @@ export class TourdetailsComponent implements OnInit {
     this.cargando = true;
     this._toursService.buscarPorCiudad(placeID)
       .subscribe((resp: any) => {
+        console.log(resp);
         if (resp.Tour.length > 0) {
           this.tours = resp.Tour;
           this.imagenfondo = resp.TourExtra.foto;
+
+
           this.Existentours = true;
           this.NoExistentours = false;
           this.cargando = false;
