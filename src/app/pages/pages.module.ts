@@ -34,6 +34,7 @@ import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.compon
 import { SpineerModule } from './common/spineer/spineer.module';
 import { SocialShareComponent } from './public/tour/social-share/social-share.component';
 import { DatepickerComponent } from './public/tour/datepicker/datepicker.component';
+import { SponsorsComponent } from './public/sponsors/sponsors.component';
 
 const customConfig: ShareButtonsConfig = {
     autoSetMeta: true,
@@ -53,6 +54,8 @@ const customConfig: ShareButtonsConfig = {
         ProfilelokklComponent,
         SocialShareComponent,
         DatepickerComponent,
+        // PatrocionadoresComponent,
+        SponsorsComponent,
     ],
     exports: [
     ],

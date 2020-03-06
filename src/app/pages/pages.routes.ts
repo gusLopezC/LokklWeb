@@ -8,6 +8,7 @@ import { BecomeguideComponent } from './public/becomeguide/becomeguide.component
 import { TourdetailsComponent } from './public/tour/tourdetails.component';
 import { TourComponent } from './public/tour/tour/tour.component';
 import { ProfilelokklComponent } from './public/profilelokkl/profilelokkl.component';
+import { SponsorsComponent } from './public/sponsors/sponsors.component';
 
 const pagesRoutes: Routes = [
 
@@ -20,6 +21,9 @@ const pagesRoutes: Routes = [
     },
     {
         path: 'contact', pathMatch: 'full', component: ContactComponent
+    },
+    {
+        path: 'sponsors', pathMatch: 'full', component: SponsorsComponent
     },
     {
         path: 'becomeguide', pathMatch: 'full', component: BecomeguideComponent

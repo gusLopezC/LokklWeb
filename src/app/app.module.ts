@@ -23,6 +23,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CiudadesComponent } from './pages/home/ciudades/ciudades.component';
+import { PatrocionadoresComponent } from './pages/components/patrocionadores/patrocionadores.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,7 +33,8 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
-    CiudadesComponent
+    CiudadesComponent,
+    PatrocionadoresComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
