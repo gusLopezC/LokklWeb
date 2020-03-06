@@ -287,7 +287,6 @@ export class CreateTourComponent implements OnInit {
     );
     this._toursService.guardarDatosTour(tour, this.fotos, this.token)
       .subscribe(resp => {
-
         let timerInterval;
         swal.fire({
           title: 'Cargando tu información',

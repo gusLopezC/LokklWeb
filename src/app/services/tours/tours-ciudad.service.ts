@@ -22,6 +22,7 @@ export class ToursCiudadService {
 
   token: string;
   usuario: Usuario;
+  lenguaje: string;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, public http: HttpClient, public router: Router, ) {
     if (isPlatformBrowser(this.platformId)) {
@@ -31,7 +32,11 @@ export class ToursCiudadService {
 
   obtenerTourScrollInfinite(numeropagina: number) {
 
-    const url = URL_SERVICIOS + '/api/tours/ObtenerTourInfiniteScroll?page=' + numeropagina;
+    if (isPlatformBrowser(this.platformId)) {
+      this.lenguaje = localStorage.getItem('lenguaje');
+    }
+
+    const url = URL_SERVICIOS + '/api/tours/' + this.lenguaje + '/ObtenerTourInfiniteScroll?page=' + numeropagina;
 
     return this.http.get(url).pipe(
       map((resp: any) => {

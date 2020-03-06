@@ -28,7 +28,7 @@ declare namespace google.maps.places {
   templateUrl: './tourdetails.component.html',
   styleUrls: ['./tourdetails.component.css']
 })
-export class TourdetailsComponent implements OnInit {
+export class TourdetailsComponent {
 
   tours: Tours[] = [];
   // DatosExtra: DatosTourExtra;
@@ -37,7 +37,7 @@ export class TourdetailsComponent implements OnInit {
   NoExistentours = false;
   imagenfondo: string;
   public ciudadbusqueda: string;
-  cargando: boolean = true;
+  cargando = true;
   private geoCoder;
 
 
@@ -64,11 +64,8 @@ export class TourdetailsComponent implements OnInit {
     this.browserLang = translate.getBrowserLang();
   }
 
-  ngOnInit() {
 
-
-  }//end ngOnInit
-
+  // tslint:disable-next-line: use-lifecycle-interface
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
 
@@ -76,11 +73,11 @@ export class TourdetailsComponent implements OnInit {
         // load Places Autocomplete
         this.mapsAPILoader.load().then(() => {
           this.geoCoder = new google.maps.Geocoder;
-          let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+          const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
             // types: ["address"]
           });
 
-          autocomplete.addListener("place_changed", () => {
+          autocomplete.addListener('place_changed', () => {
             this.ngZone.run(() => {
               // get the place result
               let place: google.maps.places.PlaceResult = autocomplete.getPlace();

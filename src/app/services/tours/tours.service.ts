@@ -17,6 +17,7 @@ import { Tours } from 'src/app/models/tour.model';
 import { ToursEdit } from '../../models/touredit.model';
 
 import { UsuarioService } from '../usuarios/usuarios.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +32,14 @@ export class ToursService {
     @Inject(PLATFORM_ID) private platformId: Object,
     public http: HttpClient,
     public router: Router,
-    public _usuarioService: UsuarioService, ) {
+    public _usuarioService: UsuarioService,
+    private translate: TranslateService, ) {
     if (isPlatformBrowser(this.platformId)) {
       this.token = localStorage.getItem('token');
       this.usuario = this._usuarioService.user;
+    }
+    if (isPlatformBrowser(this.platformId)) {
+      this.lenguaje = localStorage.getItem('lenguaje');
     }
   }
 
@@ -44,7 +49,7 @@ export class ToursService {
 
     const itinerary = JSON.stringify(tour.itinerary);
     const whatsIncluded = JSON.stringify(tour.whatsIncluded);
-
+    const browserLang = this.translate.getBrowserLang();
 
     const url = URL_SERVICIOS + '/api/tours';
 
@@ -68,6 +73,7 @@ export class ToursService {
     formData.append('idiomas', tour.lenguajes);
     formData.append('price', tour.price);
     formData.append('moneda', tour.moneda);
+    formData.append('lenguaje', browserLang);
     formData.append('user_id', tour.user_id);
 
     let headers = new HttpHeaders();
@@ -124,7 +130,7 @@ export class ToursService {
 
   buscarPorCiudad(placeID: string) {
 
-    const url = URL_SERVICIOS + '/api/tours/ObtenerPorCiudad/' + placeID;
+    const url = URL_SERVICIOS + '/api/tours/' + this.lenguaje + '/ObtenerPorCiudad/' + placeID;
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
@@ -149,9 +155,7 @@ export class ToursService {
   }
 
   obtenerTour(slug: string) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.lenguaje = localStorage.getItem('lenguaje');
-    }
+
     const url = URL_SERVICIOS + '/api/tours/ObtenerTour/' + slug + '/' + this.lenguaje;
 
     let headers = new HttpHeaders();

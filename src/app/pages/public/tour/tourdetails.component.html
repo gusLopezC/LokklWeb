@@ -46,8 +46,7 @@
                                     <small>{{tour.categories}}</small>
                                 </figure>
                                 <div class="wrapper">
-                                    <h6 *ngIf="browserLang === 'es'">{{tour.name}}</h6>
-                                    <h6 *ngIf="browserLang === 'en'">{{tour.nameIngles}}</h6>
+                                    <h6>{{tour.name}}</h6>
                                     <p [innerHTML]="tour.schedulle.substr(0,100)+' ...'"></p>
                                     <span class="price">Desde <strong>${{tour.price}} {{tour.moneda}}</strong> /por persona</span>
                                 </div>

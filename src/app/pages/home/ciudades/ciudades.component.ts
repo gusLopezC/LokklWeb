@@ -34,12 +34,10 @@ export class CiudadesComponent {
     this.dataList = [];
     this._toursCiudadService.obtenerTourScrollInfinite(this.numberPagination)
       .subscribe(resp => {
+        console.log(resp);
         this.total = resp.Tour.total;
         // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < resp.Tour.data.length; i++) {
-          if (resp.Tour.data[i].lenguaje !== this.browserLang) {
-            resp.Tour.data[i].name = resp.Tour.data[i].nameIngles;
-          }
 
           this.dataList.push(resp.Tour.data[i]);
           this.lastPage = resp.Tour.last_page;

@@ -25,7 +25,9 @@
             </div>
             <div>
                 <br><br>
-                <p style="text-align: center; color:#fff;">{{ 'help.Needmoreinformation?' | translate }} <strong><a [routerLink]="['/support/help']" routerLinkActive="router-link-active" style="color: #fff;">{{ 'help.ClickHere' | translate }}</a></strong></p>
+                <p style="text-align: center; color:#fff;">{{ 'help.Needmoreinformation?' | translate }} <strong><a
+                            [routerLink]="['/support/help']" routerLinkActive="router-link-active"
+                            style="color: #fff;">{{ 'help.ClickHere' | translate }}</a></strong></p>
             </div>
         </div>
     </section>
@@ -37,7 +39,8 @@
                     <div class="wrapper">
                         <div class="row">
                             <div class="col-sm-4">
-                                <img src="assets/img/becomeguide/Mapa.png" alt="" width="300" height="300" class="centrarimagen">
+                                <img src="assets/img/becomeguide/Mapa.png" alt="" width="300" height="300"
+                                    class="centrarimagen">
                             </div>
                             <div class="col-sm-8" style="padding: 64px;">
                                 <div class="textoblanco">
@@ -53,7 +56,9 @@
                     <h4>{{ 'createTour.Paso1Tile' | translate }}</h4>
                     <p>{{ 'createTour.Paso1Texto' | translate }}
                     </p>
-                    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search name="cuidad" required>
+                    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+                        placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off"
+                        type="text" #search name="cuidad" required>
                 </div>
                 <br>
                 <div class="form-group">
@@ -61,9 +66,11 @@
                     <p>{{ 'createTour.Paso2Texto' | translate }}</p>
                 </div>
             </div>
-            <agm-map [latitude]="latitude" [longitude]="longitude" [disableDefaultUI]="false" [scrollwheel]="true" [zoom]="zoom">
+            <agm-map [latitude]="latitude" [longitude]="longitude" [disableDefaultUI]="false" [scrollwheel]="true"
+                [zoom]="zoom">
 
-                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerMoved($event)"> </agm-marker>
+                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                    (dragEnd)="markerMoved($event)"> </agm-marker>
             </agm-map>
             <br>
             <div class="container">
@@ -71,7 +78,8 @@
                     <h4>{{ 'createTour.Paso3Title' | translate }}</h4>
                     <p>{{ 'createTour.Paso3Texto' | translate }}
                     </p>
-                    <input type="text" class="form-control" formControlName="puntoInicio" required placeholder="{{ 'createTour.Paso3Texto2' | translate }}">
+                    <input type="text" class="form-control" formControlName="puntoInicio" required
+                        placeholder="{{ 'createTour.Paso3Texto2' | translate }}">
                 </div>
                 <br>
             </div>
@@ -82,7 +90,8 @@
                     <div class="wrapper">
                         <div class="row">
                             <div class="col-sm-4">
-                                <img src="assets/img/becomeguide/tiki_icono_fun.png" alt="" width="300" height="300" class="centrarimagen">
+                                <img src="assets/img/becomeguide/tiki_icono_fun.png" alt="" width="300" height="300"
+                                    class="centrarimagen">
                             </div>
                             <div class="col-sm-8" style="padding: 64px;">
                                 <div class="textoblanco">
@@ -97,7 +106,8 @@
                 <div class="form-group">
                     <h4>{{ 'createTour.Paso4Title' | translate }}</h4>
                     <p>{{ 'createTour.Paso4Texto' | translate }} </p>
-                    <input type="text" class="form-control" formControlName="name" required placeholder="E.g 'Descubre chichen itza at night'">
+                    <input type="text" class="form-control" formControlName="name" required
+                        placeholder="E.g 'Descubre chichen itza at night'">
                 </div>
                 <br>
                 <div class="form-group">
@@ -112,7 +122,8 @@
                     <div class="wrapper">
                         <div class="row">
                             <div class="col-sm-4">
-                                <img src="assets/img/becomeguide/Mapa.png" alt="" width="300" height="300" class="centrarimagen">
+                                <img src="assets/img/becomeguide/Mapa.png" alt="" width="300" height="300"
+                                    class="centrarimagen">
                             </div>
                             <div class="col-sm-8" style="padding: 64px;">
                                 <div class="textoblanco">
@@ -128,32 +139,40 @@
                     <h4>{{ 'createTour.Paso6Title' | translate }}</h4>
                     <p>{{ 'createTour.Paso6Texto' | translate }}</p>
                     <div formArrayName="itinerary">
-                        <div class="row" style="margin-top: 20px;" *ngFor="let item of getItinerarys.controls; let pointIndex=index" [formGroupName]="pointIndex">
+                        <div class="row" style="margin-top: 20px;"
+                            *ngFor="let item of getItinerarys.controls; let pointIndex=index"
+                            [formGroupName]="pointIndex">
                             <div class="col-sm-10">
                                 <input class="form-control" formControlName="itinerary" />
                             </div>
                             <div class="col-sm-2">
-                                <a class="btn btn-danger" (click)="removeItinerary(pointIndex)"><span style="color:#fff">&nbsp;&nbsp;<i>&times;</i>&nbsp;&nbsp;</span></a>
+                                <a class="btn btn-danger" (click)="removeItinerary(pointIndex)"><span
+                                        style="color:#fff">&nbsp;&nbsp;<i>&times;</i>&nbsp;&nbsp;</span></a>
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-link btn-block" (click)="addItinerary()"><img src="assets/img/icons/tour/add.png" alt="" height="30px"></a>
+                    <a class="btn btn-link btn-block" (click)="addItinerary()"><img src="assets/img/icons/tour/add.png"
+                            alt="" style="height: 40px;"></a>
                 </div>
                 <br>
                 <div class="form-group">
                     <h4>{{ 'createTour.Paso7Texto' | translate }}:</h4>
                     <p>{{ 'createTour.Paso7Title' | translate }}</p>
                     <div formArrayName="whatsIncluded">
-                        <div class="row" style="margin-top: 20px;" *ngFor="let item of getwhatsIncludeds.controls; let pointIndex=index" [formGroupName]="pointIndex">
+                        <div class="row" style="margin-top: 20px;"
+                            *ngFor="let item of getwhatsIncludeds.controls; let pointIndex=index"
+                            [formGroupName]="pointIndex">
                             <div class="col-sm-10">
                                 <input class="form-control" formControlName="whatsIncluded" />
                             </div>
                             <div class="col-sm-2">
-                                <a class="btn btn-danger" (click)="removewhatsIncluded(pointIndex)"><span style="color:#fff">&nbsp;&nbsp;&times;&nbsp;&nbsp;</span></a>
+                                <a class="btn btn-danger" (click)="removewhatsIncluded(pointIndex)"><span
+                                        style="color:#fff">&nbsp;&nbsp;&times;&nbsp;&nbsp;</span></a>
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-link btn-block" (click)="addwhatsIncluded()"><img src="assets/img/icons/tour/add.png" alt="" height="30px"></a>
+                    <a class="btn btn-link btn-block" (click)="addwhatsIncluded()"><img
+                            src="assets/img/icons/tour/add.png" alt="" style="height: 40px;"></a>
                 </div>
                 <br>
                 <br>
@@ -162,14 +181,17 @@
                         <div class="form-group">
                             <h4>{{ 'createTour.Paso8Title' | translate }}</h4>
                             <br>
-                            <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="categories" required>
+                            <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="categories"
+                                required>
                                 <option value="Cultura">{{ 'createTour.CategoriaCultura' | translate }}</option>
                                 <option value="Histórico">{{ 'createTour.CategoriaHistórico' | translate }}</option>
-                                <option value="Ecoturistico">{{ 'createTour.CategoriaEcoturistico' | translate }}</option>
+                                <option value="Ecoturistico">{{ 'createTour.CategoriaEcoturistico' | translate }}
+                                </option>
                                 <option value="Aventura">{{ 'createTour.CategoriaAventura' | translate }}</option>
-                                <option value="Gastronomico">{{ 'createTour.CategoriaGastronomico' | translate }}</option>
+                                <option value="Gastronomico">{{ 'createTour.CategoriaGastronomico' | translate }}
+                                </option>
                                 <option value="Deportivo">{{ 'createTour.CategoriaDeportivo' | translate }}</option>
-    
+
                             </select>
                         </div>
                         <br>
@@ -179,7 +201,8 @@
                             <h4>{{ 'createTour.Paso9Title' | translate }}</h4>
                             <br>
                             <div style="width: 50%;">
-                                <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="duration" required>
+                                <select class="form-control ng-pristine ng-invalid ng-touched"
+                                    formControlName="duration" required>
                                     <option value="01:00">01:00 hrs</option>
                                     <option value="02:00">02:00 hrs</option>
                                     <option value="03:00">03:00 hrs</option>
@@ -204,9 +227,11 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <h5 for="alterEgo">{{ 'prospects.FormularioPregunta9' | translate }}</h5>
-                            <ng-select *ngIf="!BanderaIdioma" [options]="listidiomas" name="idiomas" [multiple]="true" formControlName="idiomas" required>
+                            <ng-select *ngIf="!BanderaIdioma" [options]="listidiomas" name="idiomas" [multiple]="true"
+                                formControlName="idiomas" required>
                             </ng-select>
-                            <ng-select *ngIf="BanderaIdioma" [options]="listidiomasEspaniol" name="idiomas" [multiple]="true" formControlName="idiomas" required>
+                            <ng-select *ngIf="BanderaIdioma" [options]="listidiomasEspaniol" name="idiomas"
+                                [multiple]="true" formControlName="idiomas" required>
                             </ng-select>
 
                         </div>
@@ -219,7 +244,9 @@
                             <br>
                             <div class="flex">
                                 <span class="input-group-addon">$</span>
-                                <input class="form-control" type="text" formControlName="currencyfield" required placeholder="1,000.00" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                <input class="form-control" type="text" formControlName="currencyfield" required
+                                    placeholder="1,000.00"
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                 <span class="input-group-addon">.00</span>
                             </div>
                         </div>
@@ -230,11 +257,12 @@
                             <h4>{{ 'createTour.Paso10Texto' | translate }}</h4>
                             <br>
                             <div class="flex">
-                                <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="moneda" required>
-                                            <option value="USD">$ USD</option>
-                                            <option value="EUR">€ EUR</option>
-                                            <option value="MXN">$ MX</option>
-                                        </select>
+                                <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="moneda"
+                                    required>
+                                    <option value="USD">$ USD</option>
+                                    <option value="EUR">€ EUR</option>
+                                    <option value="MXN">$ MX</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -248,7 +276,8 @@
                     <div class="wrapper">
                         <div class="row">
                             <div class="col-sm-4">
-                                <img src="assets/img/becomeguide/foto.png" alt="" width="300" height="300" class="centrarimagen">
+                                <img src="assets/img/becomeguide/foto.png" alt="" width="300" height="300"
+                                    class="centrarimagen">
                             </div>
                             <div class="col-sm-8" style="padding: 64px;">
                                 <div class="textoblanco">
@@ -278,13 +307,16 @@
                     <br>
                 </div>
                 <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
-                    <ngx-dropzone-label>Haz click o arrastra tus imagenes aqui, tantas como quieras.</ngx-dropzone-label>
-                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>Haz click o arrastra tus imagenes aqui, tantas como quieras.
+                    </ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                        [removable]="true" (removed)="onRemove(f)">
                         <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
                     </ngx-dropzone-image-preview>
                 </div>
                 <br><br>
-                <button class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer" type="submit">{{ 'prospects.Send' | translate }}</button>
+                <button class="btn btn-block btn-primary waves-effect waves-light m-r-10 pointer"
+                    type="submit">{{ 'prospects.Send' | translate }}</button>
             </div>
         </form>
     </div>
