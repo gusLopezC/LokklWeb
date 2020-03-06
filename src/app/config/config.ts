@@ -1,7 +1,7 @@
 import { IOption } from 'ng-select';
 
-export const URL_SERVICIOS = 'http://localhost:8000';
-// export const URL_SERVICIOS = 'https://api.lokkl.com';
+// export const URL_SERVICIOS = 'http://localhost:8000';
+export const URL_SERVICIOS = 'https://api.lokkl.com';
 
 export const URL_AWS = 'https://lokkl.s3.us-east-2.amazonaws.com';
 
