@@ -50,9 +50,6 @@ export class DatepickerComponent implements OnInit {
 
   reservarTour() {
 
-    console.log(this.startDate);
-    console.log(this.horaInicio);
-
     if (this.horaInicio == null || this.horaInicio === '') {
       swal.fire(
         'Importante',

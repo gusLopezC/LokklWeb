@@ -7,13 +7,14 @@
         <mat-form-field class="example-full-width">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" placeholder="Start Date" [(ngModel)]="startDate" name="startDate"
-                required readonly>
+                [min]="startDate" required readonly>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker #picker md-min-date="startDate"></mat-datepicker>
         </mat-form-field>
     </div>
     <div>
-        <igx-time-picker [itemsDelta]="{hours:1, minutes:30}" [(ngModel)]="horaInicio" name="horaInicio"></igx-time-picker>
+        <igx-time-picker [itemsDelta]="{hours:1, minutes:30}" [(ngModel)]="horaInicio" name="horaInicio">
+        </igx-time-picker>
     </div>
     <br><br>
     <div class="product-counter">

@@ -34,7 +34,6 @@ export class CiudadesComponent {
     this.dataList = [];
     this._toursCiudadService.obtenerTourScrollInfinite(this.numberPagination)
       .subscribe(resp => {
-        console.log(resp);
         this.total = resp.Tour.total;
         // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < resp.Tour.data.length; i++) {
@@ -54,7 +53,6 @@ export class CiudadesComponent {
 
   onScroll() {
     if (this.dataList.length > this.total) {
-      console.log('Ya no ');
       return false;
     }
 
@@ -63,7 +61,6 @@ export class CiudadesComponent {
       this._toursCiudadService.obtenerTourScrollInfinite(this.numberPagination)
         .subscribe(resp => {
           if (resp.Tour.current_page > resp.Tour.last_page) {
-            console.log('Ya no ');
             return false;
           }
           // tslint:disable-next-line: prefer-for-of
