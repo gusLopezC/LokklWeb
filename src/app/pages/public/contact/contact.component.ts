@@ -16,13 +16,15 @@ export class ContactComponent {
   constructor(
     public _emailService: EmailService,
     private seo: SettingService
-  ) { }
+  ) { 
+    this.setSeo();
+  }
 
 
   setSeo() {
     this.seo.setTags({
       title: 'Lokkl', // Title
-      titleSuffix: '- Contacto ', // Title Suffix
+      titleSuffix: '- Contact ', // Title Suffix
       description: 'Localizarnos es fácil y rápido ya que nos encontramos en todas las redes sociales y en todos los formatos de comunicación.', // Description
       image: 'https://lokkl.com/assets/img/logopeque.png', // Image
       keywords: 'mobile, android, ios, swift, cloud development' // Keywords
