@@ -19,13 +19,15 @@ export class AboutusComponent implements OnInit {
   ngOnInit() {
   }
 
+
   setSeo() {
     this.seo.setTags({
       title: 'Lokkl', // Title
-      titleSuffix: '- About ', // Title Suffix
-      description: 'Your description', // Description
-      image: 'https://lokkl.com/knoxpo/cover.png', // Image
-      keywords: 'mobile, android, ios, swift, cloud development' // Keywords
+      titleSuffix: '- About us ', // Title Suffix
+      description: 'Mediante nuestra plataforma podrás contratar el tour que tanto has deseado de una manera fácily segura, tú eliges cuándo, dónde y cómo. Te ofrecemos seguridad, confiabilidad y sobre todocalidad en nuestros servicios.', // Description
+      image: 'https://lokkl.com/assets/img/logopeque.png', // Image
+      keywords: 'guia, viaje, viajar, experiencia, travel, mexico, queretaro', // Keywords
+      url: 'https://lokkl.com/aboutus'
     });
   }
 

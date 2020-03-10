@@ -23,8 +23,8 @@ export class ContactComponent {
     this.seo.setTags({
       title: 'Lokkl', // Title
       titleSuffix: '- Contacto ', // Title Suffix
-      description: 'Your description', // Description
-      image: 'https://lokkl.com/knoxpo/cover.png', // Image
+      description: 'Localizarnos es fácil y rápido ya que nos encontramos en todas las redes sociales y en todos los formatos de comunicación.', // Description
+      image: 'https://lokkl.com/assets/img/logopeque.png', // Image
       keywords: 'mobile, android, ios, swift, cloud development' // Keywords
     });
   }

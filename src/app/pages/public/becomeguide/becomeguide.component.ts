@@ -21,9 +21,10 @@ export class BecomeguideComponent implements OnInit {
     this.seo.setTags({
       title: 'Lokkl', // Title
       titleSuffix: '- Become a Guide ', // Title Suffix
-      description: 'Your description', // Description
-      image: 'https://lokkl.com/knoxpo/cover.png', // Image
-      keywords: 'mobile, android, ios, swift, cloud development' // Keywords
+      description: 'Nuestros guías lokkl están preparados y capacitados para ofrecerte verdaderas experiencias llenas de cultura, historia y tradiciones inmersas de la verdadera esencia que sólo una persona conocedora y nativa del lugar te puede ofrecer.', // Description
+      image: 'https://lokkl.com/assets/img/logopeque.png', // Image
+      keywords: 'mobile, android, ios, swift, cloud development', // Keywords
+      url: 'https://lokkl.com/becomeguide'
     });
   }
 }
