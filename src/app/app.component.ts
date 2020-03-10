@@ -38,9 +38,10 @@ export class AppComponent {
     this.seo.setTags({
       title: 'Lokkl', // Title
       titleSuffix: '- Los mejores tours', // Title Suffix
-      description: 'Your description', // Description
-      image: 'https://lokkl.com/knoxpo/cover.png', // Image
-      keywords: 'mobile, android, ios, swift, cloud development' // Keywords
+      description: 'Reserva tours en cualquier parte del mundo,en LOKKL encuentra los mejores tours con guías certificados.Ahorra dinero y disfruta de los mejores lugares.', // Description
+      image: 'assets/img/logopeque.png', // Image
+      keywords: 'guia, viaje, viajar, experiencia, travel, mexico, queretaro', // Keywords
+      url:'https://lokkl.com/home'
     });
   }
 

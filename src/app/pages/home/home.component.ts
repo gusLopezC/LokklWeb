@@ -1,3 +1,4 @@
+import { SettingService } from './../../services/settings/setting-service';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
@@ -34,10 +35,12 @@ export class HomeComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
+    private seo: SettingService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     public router: Router,
   ) {
+    this.setSeo();
   }
 
   ngOnInit() {
@@ -68,6 +71,19 @@ export class HomeComponent implements OnInit {
       return false;
     }
     this.router.navigate(['/tours/' + this.ciudad + '/' + this.placeID]);
+  }
+
+
+
+  setSeo() {
+    this.seo.setTags({
+      title: 'Lokkl', // Title
+      titleSuffix: '- Los mejores tours', // Title Suffix
+      description: 'Reserva tours en cualquier parte del mundo,en LOKKL encuentra los mejores tours con guías certificados.Ahorra dinero y disfruta de los mejores lugares.', // Description
+      image: 'assets/img/logopeque.png', // Image
+      keywords: 'guia, viaje, viajar, experiencia, travel, mexico, queretaro', // Keywords
+      url:'https://lokkl.com/home'
+    });
   }
 
 }
