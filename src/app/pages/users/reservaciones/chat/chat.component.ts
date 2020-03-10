@@ -25,6 +25,7 @@ export class ChatComponent {
   nameGuia: any;
   evento: NgScrollbar;
   fotoContrario: any;
+  origen: any;
 
   constructor(
     private _usuarioService: UsuarioService,
@@ -37,7 +38,14 @@ export class ChatComponent {
       if (this.router.getCurrentNavigation().extras.state) {
         this.reserva = this.router.getCurrentNavigation().extras.state.reserva;
         this.nameGuia = this.router.getCurrentNavigation().extras.state.nameGuia;
-        this.fotoContrario = this.reserva.get_guia[0].img;
+        this.origen = this.router.getCurrentNavigation().extras.state.origen;
+
+        if (this.router.getCurrentNavigation().extras.state.origen === 'Guia') {
+          this.fotoContrario = this.reserva.get_comprador[0].img;
+        } else {
+          this.fotoContrario = this.reserva.get_guia[0].img;
+
+        }
       }
     });
   }
@@ -64,7 +72,7 @@ export class ChatComponent {
       });
     setTimeout(() => {
       this.scrollbarRef.scrollTo({ bottom: 0 });
-    }, 500);
+    }, 1000);
   }
 
   async sendChatMessage() {
@@ -72,25 +80,36 @@ export class ChatComponent {
       this.scrollTo();
       return false;
     }
-    /*
-        this._ChatService.sendMessage(this.reserva, this.message)
-          .subscribe(resp => {
-            this.message = '';
-            if (resp.Mensajes.length > 0) {
-              this.chats = resp.Mensajes;
-            }
-            setTimeout(() => {
-              // this.scrollTo('.endVista');
-              this.scrollToEnd();
-            }, 1000);
-          });*/
+
+
+    if (this.origen === 'Turista') {
+      this.reserva.id_comprador = this.reserva.id_comprador
+      this.reserva.id_guia = this.reserva.id_guia
+
+    } else {
+      this.reserva.id_comprador = this.reserva.id_guia
+      this.reserva.id_guia = this.reserva.id_comprador
+
+    }
+
+    this._ChatService.sendMessage(this.reserva, this.message)
+      .subscribe(resp => {
+        this.message = '';
+        if (resp.Mensajes.length > 0) {
+          this.chats = resp.Mensajes;
+        }
+        setTimeout(() => {
+          // this.scrollTo('.endVista');
+          this.scrollTo();
+        }, 100);
+      });
   }
 
   scrollTo() {
     if (this.scrollbarRef) {
       setTimeout(() => {
         this.scrollbarRef.scrollTo({ bottom: 0 });
-      }, 500);
+      }, 300);
 
     }
 

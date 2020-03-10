@@ -81,6 +81,7 @@ export class MisViajesComponent implements OnInit {
   enterChat(reserva, nameGuia) {
     let navigationExtras: NavigationExtras = {
       state: {
+        origen: 'Turista',
         reserva: reserva,
         nameGuia: nameGuia
       }

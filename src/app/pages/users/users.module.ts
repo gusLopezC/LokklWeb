@@ -37,6 +37,7 @@ import { CalenderComponent } from './reservaciones/my-reservations/calender/cale
 import { HeadercalenderComponent } from './reservaciones/my-reservations/calender/headercalender/headercalender.component';
 import { ChatComponent } from './reservaciones/chat/chat.component';
 import { ContactoEmergenciaComponent } from './myaccount/contacto-emergencia/contacto-emergencia.component';
+import { SpineerModule } from '../common/spineer/spineer.module';
 
 // import { SharedModule } from './../common/shared.module';
 
@@ -75,6 +76,7 @@ registerLocaleData(localeEs);
     CarouselModule,
     NgScrollbarModule,
     CKEditorModule,
+    SpineerModule,
     // SharedModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
