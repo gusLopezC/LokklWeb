@@ -1,3 +1,4 @@
+import { PaymentService } from 'src/app/services/service.index';
 import { Component, OnInit, Input, } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import * as moment from 'moment';
@@ -15,16 +16,23 @@ export class DatepickerComponent implements OnInit {
 
   startDate = new Date();
   horaInicio: string;
+
   fecha: string;
   precioredondo: any;
   numberClients = 1;
 
 
-  constructor(public router: Router) {
+  constructor(
+    public _paymentService: PaymentService,
+    public router: Router) {
+
   }
+
+
 
   ngOnInit(): void {
 
+    this.revisarDisponibilidad();
     this.precioredondo = this.tour.price;
   }
 
@@ -46,6 +54,21 @@ export class DatepickerComponent implements OnInit {
       this.precioredondo = (this.precioredondo * this.numberClients).toFixed(2);
     }
   }
+
+  /**
+   *  this._paymentService.revisarDisponibilidad(this.tour.A200id)
+        .subscribe(async resp => {
+   */
+
+  revisarDisponibilidad() {
+    const disableSelectedDays = (d: Date): boolean => {
+      const date = d.getDate();
+      // Even dates are disabled.
+      return date % 2 === 0;
+    }
+
+  }
+
 
 
   reservarTour() {

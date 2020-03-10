@@ -59,10 +59,10 @@
 
                             <hr>
 
-                            <div class="compraweb">
+                            <div class="compramobile">
                                 
-                                <app-datepicker [tour]="tour"
-                                ></app-datepicker>
+                                <app-datepicker *ngIf="tour" [tour]="tour"></app-datepicker>
+
                                 <ul class="share-buttons">
                                     <strong>
                                         {{ 'tour.comparte' | translate }}
@@ -118,14 +118,13 @@
                             </div>
                         </section>
                     </div>
-                    <!-- /col -->
+                    <!-- /col  -->
+
                     <aside class="col-lg-4">
                         <br>
-                        <div class="compramobile">
-                            <app-datepicker [tour]="tour"
-                            ></app-datepicker>
-                            
-
+                        <div class="compraweb">
+                            <!--  -->
+                            <app-datepicker *ngIf="tour" [tour]="tour"></app-datepicker>
                             <ul class="share-buttons">
                                 <strong>
                                     {{ 'tour.comparte' | translate }}

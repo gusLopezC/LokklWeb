@@ -52,7 +52,7 @@ export class TourComponent implements OnInit {
     public _usuarioService: UsuarioService,
     public _comentarioService: ComentariosService,
     public _registerVisitService: RegisterVisitService,
-     ) {
+  ) {
     this.usuario = this._usuarioService.user;
   }
 

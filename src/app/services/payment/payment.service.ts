@@ -80,4 +80,28 @@ export class PaymentService {
         return throwError(error);
       }));
   }
+
+  /**
+  * Revisar disponibilidad reserva
+  */
+
+  revisarDisponibilidad(id: string) {
+
+    const url = URL_SERVICIOS + '/api/revisarDisponibilidad/' + id;
+
+    return this.http.get(url).pipe(
+      map((resp: any) => {
+
+        return resp;
+        // return resp.prospecto;
+      })
+      ,
+      catchError(error => {
+        console.log(error);
+        return throwError(error);
+      }));
+
+  }
+
+
 }

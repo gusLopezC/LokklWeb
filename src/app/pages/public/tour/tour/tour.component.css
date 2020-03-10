@@ -3,8 +3,12 @@
     padding-left: 0px;
 }
 
-.compraweb {
+.compramobile {
     display: none;
+}
+
+.compraweb {
+    display: block;
 }
 
 @media (max-width: 575px) {
@@ -13,10 +17,10 @@
         padding-left: 15px;
     }
     .compraweb {
-        display: block;
+        display: none;
     }
     .compramobile {
-        display: none;
+        display: block;
     }
 }
 
