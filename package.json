@@ -52,7 +52,7 @@
     "igniteui-angular": "^9.0.3",
     "jszip": "^3.1.5",
     "minireset.css": "~0.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng-recaptcha": "^5.0.0",
     "ng-select": "^1.0.2",
     "ngx-dropzone": "^2.2.2",
